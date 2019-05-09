@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "802108759666",
+    "firebase_url": "https://business-manager-7cde6.firebaseio.com",
+    "project_id": "business-manager-7cde6",
+    "storage_bucket": "business-manager-7cde6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:802108759666:android:8cb0c4b2aaeb7827",
+        "android_client_info": {
+          "package_name": "com.example.businessmanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "802108759666-o2i50r4sij5jv51n2nis9j4q6ne9h37i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.businessmanager",
+            "certificate_hash": "5cb9df8ee8a976572adaab3240a84ee6a3b9e2b8"
+          }
+        },
+        {
+          "client_id": "802108759666-c4detfb1s0useeq27b2u8l2n38r4tdqe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJPzKLt-WI9EFdspIYKYOd1KnkMdL7KqE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "802108759666-c4detfb1s0useeq27b2u8l2n38r4tdqe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
