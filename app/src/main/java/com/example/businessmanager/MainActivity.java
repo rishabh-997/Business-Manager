@@ -10,7 +10,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -35,11 +38,15 @@ public class MainActivity extends AppCompatActivity implements Contact_Adapter.o
     RecyclerView recyclerView;
     Contact_model model;
 
+    EditText search;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        search=findViewById(R.id.search);
 
         firebaseDatabase=FirebaseDatabase.getInstance();
         databaseReference=firebaseDatabase.getReference().child("Contacts");
@@ -51,6 +58,24 @@ public class MainActivity extends AppCompatActivity implements Contact_Adapter.o
         abdt.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         NavigationView navview=findViewById(R.id.nav_view);
+
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s)
+            {
+                filter(s.toString());
+            }
+        });
 
         navview.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -118,5 +143,17 @@ public class MainActivity extends AppCompatActivity implements Contact_Adapter.o
         builder.setMessage(contact);
         builder.show();
 
+    }
+    public void filter(String str)
+    {
+        ArrayList<Contact_model> newArraylist=new ArrayList<>();
+        for(Contact_model data : arrayList)
+        {
+            if(data.getName().toLowerCase().contains(str.toLowerCase()))
+            {
+                newArraylist.add(data);
+            }
+        }
+        adapter.filter(newArraylist);
     }
 }

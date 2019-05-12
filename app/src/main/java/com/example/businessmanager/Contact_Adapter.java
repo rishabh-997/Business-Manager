@@ -44,6 +44,12 @@ public class Contact_Adapter extends RecyclerView.Adapter<Contact_Adapter.ViewHo
         return arrayList.size();
     }
 
+    public void filter(ArrayList<Contact_model> newArraylist)
+    {
+        this.arrayList=newArraylist;
+        notifyDataSetChanged();
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         TextView name,number;

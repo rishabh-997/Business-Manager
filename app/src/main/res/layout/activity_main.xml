@@ -14,7 +14,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search here"
+            android:textSize="18sp"
+            android:id="@+id/search"/>
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
