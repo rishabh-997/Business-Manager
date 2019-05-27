@@ -9,5 +9,8 @@
     <item
         android:title="Delete Contact"
         android:id="@+id/nav_delete"/>
+    <item
+        android:title="Add client"
+        android:id="@+id/nav_client"/>
 
 </menu>

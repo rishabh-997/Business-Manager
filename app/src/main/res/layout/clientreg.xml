@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:textSize="20sp"
+            android:hint="Enter Name"
+            android:id="@+id/client_name"  />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:textSize="20sp"
+            android:hint="Enter Mobile"
+            android:id="@+id/client_mobile"  />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:textSize="20sp"
+            android:hint="Enter Phone"
+            android:id="@+id/client_phone"  />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:textSize="20sp"
+            android:hint="Enter Email id"
+            android:id="@+id/client_email"  />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:textSize="20sp"
+            android:hint="Enter PanNo"
+            android:id="@+id/client_panno"  />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:textSize="20sp"
+            android:hint="Enter BillTo"
+            android:id="@+id/client_billto"  />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:textSize="20sp"
+            android:hint="Enter ShipTo"
+            android:id="@+id/client_shipto"  />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:textSize="20sp"
+            android:hint="Enter GST Number"
+            android:id="@+id/client_gst"  />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:textSize="20sp"
+            android:hint="Enter Bank Name"
+            android:id="@+id/client_bankname"  />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:textSize="20sp"
+            android:hint="Enter IFSC Code"
+            android:id="@+id/client_ifsc"  />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:textSize="20sp"
+            android:hint="Enter ISC Code"
+            android:id="@+id/client_isc"  />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:textSize="20sp"
+            android:hint="Enter Bank Phone"
+            android:id="@+id/client_bankphone"  />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:textSize="20sp"
+            android:hint="Enter Account Number"
+            android:id="@+id/client_accno"  />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:textSize="20sp"
+            android:hint="Enter MSME Number"
+            android:id="@+id/client_msmeno"  />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:textSize="20sp"
+            android:hint="Enter Preferred Transport Type"
+            android:id="@+id/client_preferred_transport"  />
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Client"
+            android:textSize="20sp"
+            android:id="@+id/client_checkclient"/>
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Supplier"
+            android:textSize="20sp"
+            android:id="@+id/client_checksupplier"/>
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Transporter"
+            android:textSize="20sp"
+            android:id="@+id/client_checktransport"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:text="Confirm Addition ?"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:id="@+id/client_submit"/>
+
+</LinearLayout>
+</ScrollView>

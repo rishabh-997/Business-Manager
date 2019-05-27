@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.businessmanager.ClientRegistration.MVP.ClientRegActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -87,9 +88,14 @@ public class MainActivity extends AppCompatActivity implements Contact_Adapter.o
                     finish();
                     startActivity(new Intent(MainActivity.this,AddContact.class));
                 }
-                else
+                else if(id==R.id.nav_view)
                 {
                     Toast.makeText(MainActivity.this,"Inactive Link",Toast.LENGTH_SHORT).show();
+                }
+                else if(id==R.id.nav_client)
+                {
+                    finish();
+                    startActivity(new Intent(MainActivity.this, ClientRegActivity.class));
                 }
                 return true;
             }
