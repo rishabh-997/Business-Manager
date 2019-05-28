@@ -5,6 +5,8 @@ public class ClientRegContract
     interface view
     {
         void showToast(String message);
+
+        void gotohome();
     }
     interface presenter
     {

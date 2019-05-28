@@ -1,4 +1,6 @@
-package com.example.businessmanager.ClientRegistration.model;
+package com.example.businessmanager.HomeActivity.model;
+
+import java.util.Comparator;
 
 public class ClientModel
 {
@@ -150,4 +152,14 @@ public class ClientModel
     public String getRegType() {
         return RegType;
     }
+
+    public static Comparator<ClientModel> NameCompare=new Comparator<ClientModel>() {
+        @Override
+        public int compare(ClientModel o1, ClientModel o2) {
+            String name1=o1.getName().toUpperCase();
+            String name2=o2.getName().toUpperCase();
+            return  name1.compareTo(name2);
+        }
+    };
+
 }

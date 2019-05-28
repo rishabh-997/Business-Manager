@@ -1,4 +1,4 @@
-package com.example.businessmanager.ClientRegistration.api;
+package com.example.businessmanager.Utilities;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

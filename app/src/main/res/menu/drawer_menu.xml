@@ -3,9 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <item
-        android:title="Add Contact"
-        android:id="@+id/nav_add"/>
+
     <item
         android:title="Delete Contact"
         android:id="@+id/nav_delete"/>

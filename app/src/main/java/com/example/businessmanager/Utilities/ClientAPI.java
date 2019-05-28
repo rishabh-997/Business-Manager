@@ -1,10 +1,9 @@
-package com.example.businessmanager.ClientRegistration.api;
+package com.example.businessmanager.Utilities;
 
-import com.example.businessmanager.ClientRegistration.model.ClientModel;
 import com.example.businessmanager.ClientRegistration.model.ResponseBody;
+import com.example.businessmanager.HomeActivity.model.ResponseClient;
 
 import retrofit2.Call;
-import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
@@ -30,4 +29,10 @@ public interface ClientAPI
             @Field("MSMENo")String msme,
             @Field("TransportNo")String transport,
             @Field("RegType")String reg    );
+
+    @POST("DataBaseRetrival/")
+    @FormUrlEncoded
+    Call<ResponseClient> getClientList(
+            @Field("RegType") String regtype
+    );
 }

@@ -1,7 +1,7 @@
 package com.example.businessmanager.ClientRegistration.MVP;
 
-import com.example.businessmanager.ClientRegistration.api.ClientAPI;
-import com.example.businessmanager.ClientRegistration.api.Utils;
+import com.example.businessmanager.Utilities.ClientAPI;
+import com.example.businessmanager.Utilities.Utils;
 import com.example.businessmanager.ClientRegistration.model.ResponseBody;
 
 import retrofit2.Call;
@@ -22,8 +22,10 @@ public class ClientRegPresenter implements ClientRegContract.presenter
         clientAPI.createClient(name,mobile,phone,email,pan,billto,shipto,gst,bankname,ifsc,isc,bankphone,accno,msmenumber,preferred,regtype).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                if(response.isSuccessful())
+                if(response.isSuccessful()) {
                     mvpview.showToast("Registered Successfully");
+                    mvpview.gotohome();
+                }
                 else
                     mvpview.showToast(response.message());
             }
