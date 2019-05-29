@@ -1,8 +1,9 @@
 package com.example.businessmanager.HomeActivity.model;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
-public class ClientModel
+public class ClientModel implements Serializable
 {
     private String Name, Mobile,Phone,Email,Pan,BillTo,ShipTo,GSTNo,BankName,IFSCNo,ISCCode,BankPhone,AccountNo,MSMENo,TransportNo,RegType;
 

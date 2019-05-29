@@ -64,7 +64,7 @@ public class ClientRegActivity extends AppCompatActivity implements ClientRegCon
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.clientreg);
+        setContentView(R.layout.activity_clientreg);
 
         ButterKnife.bind(this);
         presenter=new ClientRegPresenter(this);
