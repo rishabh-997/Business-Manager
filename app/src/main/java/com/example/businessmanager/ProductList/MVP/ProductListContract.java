@@ -14,5 +14,6 @@ public class ProductListContract
     {
 
         void getList();
+        void addCart(String mobile,String pid, String size, String cost, String unit);
     }
 }

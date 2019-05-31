@@ -1,6 +1,6 @@
 package com.example.businessmanager.ProductList.MVP;
 
-import com.example.businessmanager.HomeActivity.model.ClientModel;
+import com.example.businessmanager.Cart.Model.CartResponse_CUD;
 import com.example.businessmanager.ProductList.model.Product_Response;
 import com.example.businessmanager.Utilities.ClientAPI;
 import com.example.businessmanager.Utilities.Utils;
@@ -31,6 +31,21 @@ public class ProductListPresenter implements ProductListContract.presenter
 
             @Override
             public void onFailure(Call<Product_Response> call, Throwable t) {
+
+            }
+        });
+    }
+
+    @Override
+    public void addCart(String mobile, String pid, String size, String cost, String unit) {
+        clientAPI.addProduct(mobile, pid, size, unit, cost).enqueue(new Callback<CartResponse_CUD>() {
+            @Override
+            public void onResponse(Call<CartResponse_CUD> call, Response<CartResponse_CUD> response) {
+                mvpview.showtaost(response.message());
+            }
+
+            @Override
+            public void onFailure(Call<CartResponse_CUD> call, Throwable t) {
 
             }
         });

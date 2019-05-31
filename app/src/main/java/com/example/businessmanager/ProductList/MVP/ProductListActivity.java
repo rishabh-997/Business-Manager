@@ -15,13 +15,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
+import com.example.businessmanager.HomeActivity.model.ClientModel;
 import com.example.businessmanager.ProductList.model.ProductList;
 import com.example.businessmanager.ProductList.model.Product_Response;
 import com.example.businessmanager.R;
 import com.squareup.picasso.Picasso;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,6 +62,8 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
     List<ProductList> list=new ArrayList<>();
     ProductListAdapter adapter;
     boolean isSheetClosed = true;
+    String cost,size, unit;
+    ClientModel clientModel;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
@@ -76,6 +76,7 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        clientModel=(ClientModel)getIntent().getExtras().getSerializable("client_details");
         presenter.getList();
 
         sheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
@@ -132,7 +133,7 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
     }
 
     @Override
-    public void onNoteClick(int position) {
+    public void onNoteClick(final int position) {
 
         ProductList productList=list.get(position);
         cart_name.setText(productList.getName());
@@ -143,6 +144,41 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
         isSheetClosed = false;
         sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
 
+        unit =cart_quantity.getText().toString();
+
+        cart_increase.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                unit =""+(Integer.valueOf(unit)+1);
+                cart_quantity.setText(unit);
+            }
+        });
+        cart_decrease.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                unit =""+(Integer.valueOf(unit)-1);
+                cart_quantity.setText(unit);
+            }
+        });
+
+        cart_submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+               addinCart(position);
+            }
+        });
+    }
+
+    private void addinCart(int position)
+    {
+        String mobile=clientModel.getMobile();
+        String pid=list.get(position).getId();
+        cost=cart_price.getText().toString();
+        size=cart_size.getText().toString();
+        unit=cart_quantity.getText().toString();
+
+        presenter.addCart(mobile,pid,size,cost,unit);
     }
 
     @Override

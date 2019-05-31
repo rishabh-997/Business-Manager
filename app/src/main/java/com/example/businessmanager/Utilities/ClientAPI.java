@@ -2,7 +2,8 @@ package com.example.businessmanager.Utilities;
 
 import com.example.businessmanager.ClientRegistration.model.ResponseBody;
 import com.example.businessmanager.HomeActivity.model.ResponseClient;
-import com.example.businessmanager.Models.CartResponse_CUD;
+import com.example.businessmanager.Cart.Model.CartResponse;
+import com.example.businessmanager.Cart.Model.CartResponse_CUD;
 import com.example.businessmanager.ProductList.model.Product_Response;
 
 import retrofit2.Call;
@@ -76,4 +77,9 @@ public interface ClientAPI
             @Field("MobileNumber") String mobile
     );
 
+    @POST("CartDetails/")
+    @FormUrlEncoded
+    Call<CartResponse> getCart(
+            @Field("MobileNumber") String mobile
+    );
 }
