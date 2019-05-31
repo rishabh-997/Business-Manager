@@ -9,8 +9,7 @@ public class ResponseClient
 {
     @SerializedName("message")
     @Expose
-    private
-    String message;
+    private String message;
     @SerializedName("success")
     @Expose
     private Boolean result;

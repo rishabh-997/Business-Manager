@@ -2,6 +2,8 @@ package com.example.businessmanager.Utilities;
 
 import com.example.businessmanager.ClientRegistration.model.ResponseBody;
 import com.example.businessmanager.HomeActivity.model.ResponseClient;
+import com.example.businessmanager.Models.CartResponse_CUD;
+import com.example.businessmanager.ProductList.model.Product_Response;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -35,4 +37,43 @@ public interface ClientAPI
     Call<ResponseClient> getClientList(
             @Field("RegType") String regtype
     );
+
+    @POST("ProductList/")
+    @FormUrlEncoded
+    Call<Product_Response> getProductList(
+            @Field("UserType") String usertype
+    );
+
+    @POST("AddCart/")
+    @FormUrlEncoded
+    Call<CartResponse_CUD> addProduct(
+            @Field("MobileNumber") String mobile,
+            @Field("PID") String productid,
+            @Field("Size") String size,
+            @Field("Unit") String unit,
+            @Field("Cost") String cost
+    );
+
+    @POST("UpdateCart/")
+    @FormUrlEncoded
+    Call<CartResponse_CUD> updateProduct(
+            @Field("MobileNumber") String mobile,
+            @Field("PID") String productid,
+            @Field("Size") String size,
+            @Field("Unit") String unit,
+            @Field("Cost") String cost
+    );
+    @POST("DeleteCart/")
+    @FormUrlEncoded
+    Call<CartResponse_CUD> deleteProduct(
+            @Field("MobileNumber") String mobile,
+            @Field("PID") String productid
+    );
+
+    @POST("DeleteAllCart/")
+    @FormUrlEncoded
+    Call<CartResponse_CUD> deleteallProduct(
+            @Field("MobileNumber") String mobile
+    );
+
 }

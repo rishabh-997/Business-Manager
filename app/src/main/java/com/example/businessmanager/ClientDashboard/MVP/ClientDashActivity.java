@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.businessmanager.HomeActivity.model.ClientModel;
+import com.example.businessmanager.ProductList.MVP.ProductListActivity;
 import com.example.businessmanager.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,5 +34,12 @@ public class ClientDashActivity extends AppCompatActivity implements ClientDashC
 
         presenter=new ClientDashPresenter(this);
         clientModel=(ClientModel)getIntent().getExtras().getSerializable("client_details");
+
+        place_order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ClientDashActivity.this, ProductListActivity.class));
+            }
+        });
     }
 }

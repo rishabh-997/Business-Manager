@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:elevation="6dp"
+    android:background="@drawable/box"
+    android:layout_margin="6dp">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/prodlist_name"
+        android:text="Product name : name"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:gravity="top"
+        android:textAlignment="center"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/prodlist_name"
+        android:background="@android:color/black"
+        />
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/prodlist_image"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_below="@id/prodlist_name"
+        android:layout_margin="8dp"
+        android:scaleType="centerCrop"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="vertical"
+        android:layout_marginTop="8dp"
+        android:layout_below="@id/prodlist_name"
+        android:layout_toRightOf="@id/prodlist_image">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:id="@+id/prodlist_id"
+            android:text="Product id"
+            android:layout_marginTop="8dp"
+            android:textSize="15sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:id="@+id/prodlist_subcat"
+            android:text="Product Subcategory"
+            android:layout_marginTop="8dp"
+            android:textSize="15sp"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/prodlist_description"
+                android:text="Description"
+                android:textSize="15sp"/>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
+</android.support.v7.widget.CardView>
