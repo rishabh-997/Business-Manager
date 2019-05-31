@@ -70,7 +70,8 @@ public class CartPresenter implements CartContract.presenter
         clientAPI.getCart(mobile).enqueue(new Callback<CartResponse>() {
             @Override
             public void onResponse(Call<CartResponse> call, Response<CartResponse> response) {
-
+                if(response.isSuccessful())
+                    mvpview.showCart(response.body());
             }
 
             @Override

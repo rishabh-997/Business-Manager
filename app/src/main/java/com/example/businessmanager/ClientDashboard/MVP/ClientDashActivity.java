@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.businessmanager.Cart.MVP.CartActivity;
 import com.example.businessmanager.HomeActivity.model.ClientModel;
 import com.example.businessmanager.ProductList.MVP.ProductListActivity;
 import com.example.businessmanager.R;
@@ -21,8 +22,8 @@ public class ClientDashActivity extends AppCompatActivity implements ClientDashC
 {
     @BindView(R.id.dashboard_place_order)
     Button place_order;
-    @BindView(R.id.dashboard_details)
-    Button details;
+    @BindView(R.id.dashboard_cart)
+    Button cart;
     @BindView(R.id.dashboard_history)
     Button history;
 
@@ -43,6 +44,15 @@ public class ClientDashActivity extends AppCompatActivity implements ClientDashC
             public void onClick(View v)
             {
                 Intent intent=new Intent(ClientDashActivity.this, ProductListActivity.class);
+                intent.putExtra("client_details", clientModel);
+                startActivity(intent);
+            }
+        });
+
+        cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(ClientDashActivity.this, CartActivity.class);
                 intent.putExtra("client_details", clientModel);
                 startActivity(intent);
             }
