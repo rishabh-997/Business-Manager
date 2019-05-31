@@ -18,13 +18,15 @@ import java.util.List;
 
 public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.ViewHolder>
 {
-    Context context;
-    List<ProductList> list;
-    ProductList productList;
+    private Context context;
+    private List<ProductList> list;
+    private ProductList productList;
+    private onNoteClickListener onNoteClickListener;
 
-    public ProductListAdapter(Context context, List<ProductList> list) {
+    public ProductListAdapter(Context context, List<ProductList> list,onNoteClickListener onNoteClickListener) {
         this.context = context;
         this.list = list;
+        this.onNoteClickListener=onNoteClickListener;
     }
 
     @NonNull
@@ -32,7 +34,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     public ProductListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i)
     {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.card_prod_list,parent,false);
-        return new ViewHolder(view);
+        return new ViewHolder(view,onNoteClickListener);
     }
 
     @SuppressLint("SetTextI18n")
@@ -55,18 +57,33 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         return list.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         TextView name,id,description,subcategory;
         ImageView imageView;
-        public ViewHolder(@NonNull View itemView)
+        onNoteClickListener listener;
+
+        public ViewHolder(@NonNull View itemView, onNoteClickListener listener)
         {
             super(itemView);
+            this.listener=listener;
             name=itemView.findViewById(R.id.prodlist_name);
             id=itemView.findViewById(R.id.prodlist_id);
             description=itemView.findViewById(R.id.prodlist_description);
             subcategory=itemView.findViewById(R.id.prodlist_subcat);
             imageView=itemView.findViewById(R.id.prodlist_image);
+
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+            listener.onNoteClick(getAdapterPosition());
+        }
+    }
+
+    public interface onNoteClickListener
+    {
+        void onNoteClick(int position);
     }
 }
