@@ -7,7 +7,6 @@ public class CartContract
     interface view
     {
         void showToast(String message);
-
         void showCart(CartResponse body);
     }
     interface presenter

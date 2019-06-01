@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.businessmanager.Cart.Model.CartList;
+import com.example.businessmanager.ProductList.MVP.ProductListAdapter;
 import com.example.businessmanager.R;
 import com.squareup.picasso.Picasso;
 
@@ -26,10 +27,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>
 {
     List<CartList> list;
     Context context;
+    private CartAdapter.onNoteClickListener onNoteClickListener;
 
-    public CartAdapter(List<CartList> list, Context context) {
+    public CartAdapter(List<CartList> list, Context context,onNoteClickListener onNoteClickListener) {
         this.list = list;
         this.context = context;
+        this.onNoteClickListener=onNoteClickListener;
     }
 
     @NonNull
@@ -37,7 +40,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>
     public CartAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i)
     {
         View view= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_cart_list,viewGroup,false);
-        return new ViewHolder(view);
+        return new ViewHolder(view,onNoteClickListener);
     }
 
     @Override
@@ -57,15 +60,17 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>
         return list.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         TextView name;
         EditText cost,size,unit;
         ImageView image;
         TextView delete,update;
+        onNoteClickListener listener;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView , final onNoteClickListener listener) {
             super(itemView);
+            this.listener=listener;
             name=itemView.findViewById(R.id.cart_final_name);
             cost=itemView.findViewById(R.id.cart_final_price);
             size=itemView.findViewById(R.id.cart_final_size);
@@ -73,6 +78,29 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>
             image=itemView.findViewById(R.id.cart_final_image);
             update=itemView.findViewById(R.id.cart_final_update);
             delete=itemView.findViewById(R.id.cart_final_delete);
+
+            update.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onUpdateClick(getAdapterPosition(),cost.getText().toString(),size.getText().toString(),unit.getText().toString());
+                }
+            });
+            delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onDeleteClick(getAdapterPosition());
+                }
+            });
         }
+
+        @Override
+        public void onClick(View v) {
+
+        }
+    }
+    public interface onNoteClickListener
+    {
+        void onUpdateClick(int position,String cost,String size,String unit);
+        void onDeleteClick(int position);
     }
 }

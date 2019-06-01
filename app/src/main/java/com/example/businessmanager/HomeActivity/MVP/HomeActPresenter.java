@@ -24,6 +24,7 @@ public class HomeActPresenter implements HomeActContract.presenter
             @Override
             public void onResponse(Call<ResponseClient> call, Response<ResponseClient> response) {
                 if(response.isSuccessful()) {
+                    mvpview.showToast("Here");
                     mvpview.showData(response.body());
                 }
                 else

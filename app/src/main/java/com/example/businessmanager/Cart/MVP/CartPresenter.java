@@ -23,7 +23,7 @@ public class CartPresenter implements CartContract.presenter
         clientAPI.updateProduct(mobile,pid,size,unit,cost).enqueue(new Callback<CartResponse_CUD>() {
             @Override
             public void onResponse(Call<CartResponse_CUD> call, Response<CartResponse_CUD> response) {
-
+                mvpview.showToast(response.message());
             }
 
             @Override
@@ -39,7 +39,7 @@ public class CartPresenter implements CartContract.presenter
         clientAPI.deleteProduct(mobile,pid).enqueue(new Callback<CartResponse_CUD>() {
             @Override
             public void onResponse(Call<CartResponse_CUD> call, Response<CartResponse_CUD> response) {
-
+                mvpview.showToast(response.message());
             }
 
             @Override
@@ -54,7 +54,7 @@ public class CartPresenter implements CartContract.presenter
         clientAPI.deleteallProduct(mobile).enqueue(new Callback<CartResponse_CUD>() {
             @Override
             public void onResponse(Call<CartResponse_CUD> call, Response<CartResponse_CUD> response) {
-
+                mvpview.showToast("Deleted Everything");
             }
 
             @Override
