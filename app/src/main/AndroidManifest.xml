@@ -24,6 +24,7 @@
         <activity android:name=".ClientDashboard.MVP.ClientDashActivity" />
         <activity android:name=".ProductList.MVP.ProductListActivity" />
         <activity android:name=".Cart.MVP.CartActivity" />
+        <activity android:name=".CheckOut.MVP.CheckOutActivity"/>
     </application>
 
 </manifest>

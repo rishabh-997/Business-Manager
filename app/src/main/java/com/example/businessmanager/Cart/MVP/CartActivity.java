@@ -1,5 +1,6 @@
 package com.example.businessmanager.Cart.MVP;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.businessmanager.Cart.Model.CartList;
 import com.example.businessmanager.Cart.Model.CartResponse;
+import com.example.businessmanager.CheckOut.MVP.CheckOutActivity;
 import com.example.businessmanager.HomeActivity.model.ClientModel;
 import com.example.businessmanager.R;
 
@@ -67,7 +69,9 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
         fab_place.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent=new Intent(CartActivity.this, CheckOutActivity.class);
+                intent.putExtra("client_details", clientModel);
+                startActivity(intent);
             }
         });
         fab_deleteall.setOnClickListener(new View.OnClickListener() {
