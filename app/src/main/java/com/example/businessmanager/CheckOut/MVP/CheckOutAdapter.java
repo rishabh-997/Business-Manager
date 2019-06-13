@@ -40,13 +40,10 @@ public class CheckOutAdapter extends RecyclerView.Adapter<CheckOutAdapter.ViewHo
         viewHolder.unit.setText("Unit : "+cartList.getUnit());
         viewHolder.size.setText(cartList.getSize());
         viewHolder.costper.setText(cartList.getCost());
-        String costper=cartList.getCost();
-        String unit=cartList.getUnit();
-        Double cost=Double.parseDouble(costper)*Double.parseDouble(unit);
-        Double gst=cost*0.18;
-        viewHolder.cost.setText("Cost : "+cost);
-        viewHolder.gst.setText("GST Tax : "+gst);
-        viewHolder.total.setText("Total : "+(cost+gst));
+
+        viewHolder.cost.setText("Cost : "+cartList.getTotal_cost());
+        viewHolder.gst.setText("GST Tax : "+cartList.getSgst());
+        viewHolder.total.setText("Total : "+cartList.getTotal_cost_tax());
     }
 
     @Override

@@ -101,11 +101,12 @@
                     android:layout_height="wrap_content"
                     android:text="Enter Size of Item"
                     android:textSize="17sp"/>
-                <EditText
+                <Spinner
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="Size"
+                    android:background="#f2f2f2"
                     android:id="@+id/cart_size"
                     android:textSize="17sp"/>
 
@@ -135,9 +136,9 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
+                <EditText
                     android:id="@+id/cart_item_quantity"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="30dp"
                     android:layout_centerInParent="true"
                     android:background="#fbfbfb"
@@ -145,6 +146,7 @@
                     android:minWidth="15dp"
                     android:paddingLeft="8dp"
                     android:paddingRight="8dp"
+                    android:hint="Enter unit"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toStartOf="@+id/cart_increase_quantity"

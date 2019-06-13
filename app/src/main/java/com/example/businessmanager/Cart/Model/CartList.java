@@ -2,6 +2,8 @@ package com.example.businessmanager.Cart.Model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.lang.ref.SoftReference;
+
 public class CartList
 {
     @SerializedName("name")
@@ -26,7 +28,16 @@ public class CartList
     @SerializedName("Cost")
     String cost;
 
-    public CartList(String name, String description, String id, String image_url, String sub_category, String size, String unit, String cost) {
+    @SerializedName("Total_Cost")
+    String total_cost;
+    @SerializedName("CGST")
+    String cgst;
+    @SerializedName("SGST")
+    String sgst;
+    @SerializedName("Total_Cost_WTax")
+    String total_cost_tax;
+
+    public CartList(String name, String description, String id, String image_url, String sub_category, String size, String unit, String cost, String total_cost, String cgst, String sgst, String total_cost_tax) {
         this.name = name;
         this.description = description;
         this.id = id;
@@ -35,6 +46,26 @@ public class CartList
         this.size = size;
         this.unit = unit;
         this.cost = cost;
+        this.total_cost = total_cost;
+        this.cgst = cgst;
+        this.sgst = sgst;
+        this.total_cost_tax = total_cost_tax;
+    }
+
+    public String getTotal_cost() {
+        return total_cost;
+    }
+
+    public String getCgst() {
+        return cgst;
+    }
+
+    public String getSgst() {
+        return sgst;
+    }
+
+    public String getTotal_cost_tax() {
+        return total_cost_tax;
     }
 
     public String getName() {

@@ -1,5 +1,6 @@
 package com.example.businessmanager.CheckOut.MVP;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -73,7 +74,7 @@ public class CheckOutActivity extends AppCompatActivity implements CheckOutContr
         place.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(CheckOutActivity.this, "Ruk Jao Chcha", Toast.LENGTH_SHORT).show();
+                placeorder();
             }
         });
         name.setText(clientModel.getName());
@@ -83,6 +84,16 @@ public class CheckOutActivity extends AppCompatActivity implements CheckOutContr
                 onBackPressed();
             }
         });
+    }
+
+    private void placeorder()
+    {
+        presenter.placeorder("Client",clientModel.getName(),clientModel.getMobile(),payment_terms);
+    }
+
+    @Override
+    public void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -96,15 +107,15 @@ public class CheckOutActivity extends AppCompatActivity implements CheckOutContr
         recyclerView.setAdapter(checkOutAdapter);
     }
 
+    @SuppressLint("SetTextI18n")
     private void showCost()
     {
         Double cost=0.0;
         for(int i=0;i<list.size();i++)
         {
-            Double costitem=Double.parseDouble(list.get(i).getCost())*Double.parseDouble(list.get(i).getUnit());
+            Double costitem=Double.parseDouble(list.get(i).getTotal_cost_tax());
             cost+=costitem;
         }
-        cost=cost+(cost*0.18);
         total.setText(""+cost);
     }
 

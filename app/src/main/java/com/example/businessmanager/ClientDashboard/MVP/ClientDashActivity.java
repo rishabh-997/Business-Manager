@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.businessmanager.Cart.MVP.CartActivity;
+import com.example.businessmanager.History.MVP.HistoryActivity;
 import com.example.businessmanager.HomeActivity.model.ClientModel;
 import com.example.businessmanager.ProductList.MVP.ProductListActivity;
 import com.example.businessmanager.R;
@@ -53,6 +54,15 @@ public class ClientDashActivity extends AppCompatActivity implements ClientDashC
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(ClientDashActivity.this, CartActivity.class);
+                intent.putExtra("client_details", clientModel);
+                startActivity(intent);
+            }
+        });
+
+        history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(ClientDashActivity.this, HistoryActivity.class);
                 intent.putExtra("client_details", clientModel);
                 startActivity(intent);
             }

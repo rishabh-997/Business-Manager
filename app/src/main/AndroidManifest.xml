@@ -25,6 +25,7 @@
         <activity android:name=".ProductList.MVP.ProductListActivity" />
         <activity android:name=".Cart.MVP.CartActivity" />
         <activity android:name=".CheckOut.MVP.CheckOutActivity"/>
+        <activity android:name=".History.MVP.HistoryActivity"/>
     </application>
 
 </manifest>

@@ -1,9 +1,12 @@
 package com.example.businessmanager.Utilities;
 
+import com.example.businessmanager.CheckOut.Model.PlaceOrderResponse;
 import com.example.businessmanager.ClientRegistration.model.ResponseBody;
+import com.example.businessmanager.History.Model.HistoryResponse;
 import com.example.businessmanager.HomeActivity.model.ResponseClient;
 import com.example.businessmanager.Cart.Model.CartResponse;
 import com.example.businessmanager.Cart.Model.CartResponse_CUD;
+import com.example.businessmanager.Model_common.UnitResponse;
 import com.example.businessmanager.ProductList.model.Product_Response;
 
 import retrofit2.Call;
@@ -83,4 +86,25 @@ public interface ClientAPI
             @Field("MobileNumber") String mobile
     );
 
+    @POST("GetUnitData/")
+    @FormUrlEncoded
+    Call<UnitResponse> getUnits(
+            @Field("mob") String mob
+    );
+
+    @POST("PlaceOrder/")
+    @FormUrlEncoded
+    Call<PlaceOrderResponse> placeorder(
+            @Field("Contact_Type") String contacttype,
+            @Field("Name") String name,
+            @Field("MobileNumber") String mobile ,
+            @Field("Terms") String terms
+    );
+
+    @POST("GetOrderHistory")
+    @FormUrlEncoded
+    Call<HistoryResponse> getOrderHistory(
+            @Field("MobileNumber") String mob,
+            @Field("Contact_Type") String type
+    );
 }

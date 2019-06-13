@@ -1,6 +1,7 @@
 package com.example.businessmanager.CheckOut.MVP;
 
 import com.example.businessmanager.Cart.Model.CartResponse;
+import com.example.businessmanager.CheckOut.Model.PlaceOrderResponse;
 import com.example.businessmanager.Utilities.ClientAPI;
 import com.example.businessmanager.Utilities.Utils;
 
@@ -30,6 +31,29 @@ public class CheckOutPresenter implements CheckOutContract.presenter
             @Override
             public void onFailure(Call<CartResponse> call, Throwable t) {
 
+            }
+        });
+    }
+
+    @Override
+    public void placeorder(String client, String name, String mobile, String payment_terms) {
+        clientAPI.placeorder(client,name,mobile,payment_terms).enqueue(new Callback<PlaceOrderResponse>() {
+            @Override
+            public void onResponse(Call<PlaceOrderResponse> call, Response<PlaceOrderResponse> response) {
+                if(response.isSuccessful())
+                {
+                    if(response.body().getMessage().equals("Successful"))
+                    {
+                        mvpview.showToast("Your Order Id is "+response.body().getOrderid());
+                    }
+                    else
+                        mvpview.showToast("Error Occured ! Try Again");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PlaceOrderResponse> call, Throwable t) {
+                mvpview.showToast(t.getMessage());
             }
         });
     }
