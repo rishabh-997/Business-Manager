@@ -2,6 +2,7 @@ package com.example.businessmanager.Utilities;
 
 import com.example.businessmanager.CheckOut.Model.PlaceOrderResponse;
 import com.example.businessmanager.ClientRegistration.model.ResponseBody;
+import com.example.businessmanager.History.Model.HistoryDetailResponse;
 import com.example.businessmanager.History.Model.HistoryResponse;
 import com.example.businessmanager.HomeActivity.model.ResponseClient;
 import com.example.businessmanager.Cart.Model.CartResponse;
@@ -101,10 +102,16 @@ public interface ClientAPI
             @Field("Terms") String terms
     );
 
-    @POST("GetOrderHistory")
+    @POST("GetOrderHistory/")
     @FormUrlEncoded
     Call<HistoryResponse> getOrderHistory(
             @Field("MobileNumber") String mob,
             @Field("Contact_Type") String type
+    );
+
+    @POST("GetOrderDetailsHistory/")
+    @FormUrlEncoded
+    Call<HistoryDetailResponse> getOrderDetailsHistory(
+            @Field("OrderId") String id
     );
 }
