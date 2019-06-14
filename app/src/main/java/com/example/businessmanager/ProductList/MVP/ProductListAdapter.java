@@ -45,7 +45,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         String image_url=productList.getImage_url();
         viewHolder.name.setText(productList.getName());
         viewHolder.id.setText("Product id : "+productList.getId());
-        viewHolder.description.setText(productList.getDescription());
+        viewHolder.description.setText("Uses : \n"+productList.getDescription());
         viewHolder.subcategory.setText("Sub_category : "+productList.getSub_category());
         if(image_url.isEmpty())
             image_url="http://unbxd.com/blog/wp-content/uploads/2014/02/No-results-found.jpg";

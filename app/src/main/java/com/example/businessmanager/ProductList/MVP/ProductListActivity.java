@@ -1,5 +1,6 @@
 package com.example.businessmanager.ProductList.MVP;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -18,6 +20,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.businessmanager.Cart.MVP.CartActivity;
 import com.example.businessmanager.CheckOut.MVP.CheckOutActivity;
 import com.example.businessmanager.HomeActivity.model.ClientModel;
 import com.example.businessmanager.Model_common.UnitList;
@@ -61,6 +64,11 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
     EditText cart_quantity;
     @BindView(R.id.cart_submit)
     Button cart_submit;
+
+    @BindView(R.id.toolbar_text)
+    TextView toolbartext;
+    @BindView(R.id.toolbar_cart)
+    ImageView toolbarcart;
     @BindView(R.id.bottom_sheet_add_to_cart)
     RelativeLayout bottom_sheet;
     BottomSheetBehavior sheetBehavior;
@@ -78,6 +86,9 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_productlist);
         ButterKnife.bind(this);
+
+        getSupportActionBar().hide();
+        toolbartext.setText("Products");
         presenter=new ProductListPresenter(this);
         sheetBehavior=BottomSheetBehavior.from(bottom_sheet);
         recyclerView.setHasFixedSize(true);
@@ -124,6 +135,14 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
             public void onClick(View v) {
                 isSheetClosed=true;
                 sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+            }
+        });
+        toolbarcart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(ProductListActivity.this, CheckOutActivity.class);
+                intent.putExtra("client_details", clientModel);
+                startActivity(intent);
             }
         });
     }

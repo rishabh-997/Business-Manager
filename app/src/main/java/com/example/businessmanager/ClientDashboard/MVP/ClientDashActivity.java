@@ -6,15 +6,12 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.example.businessmanager.Cart.MVP.CartActivity;
+import com.example.businessmanager.ClientDetails.MVP.ClientDetailActivity;
 import com.example.businessmanager.History.MVP.HistoryActivity;
 import com.example.businessmanager.HomeActivity.model.ClientModel;
 import com.example.businessmanager.ProductList.MVP.ProductListActivity;
 import com.example.businessmanager.R;
-
-import java.io.Serializable;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,8 +20,8 @@ public class ClientDashActivity extends AppCompatActivity implements ClientDashC
 {
     @BindView(R.id.dashboard_place_order)
     Button place_order;
-    @BindView(R.id.dashboard_cart)
-    Button cart;
+    @BindView(R.id.dashboard_clientdetail)
+    Button details;
     @BindView(R.id.dashboard_history)
     Button history;
 
@@ -50,10 +47,10 @@ public class ClientDashActivity extends AppCompatActivity implements ClientDashC
             }
         });
 
-        cart.setOnClickListener(new View.OnClickListener() {
+        details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(ClientDashActivity.this, CartActivity.class);
+                Intent intent=new Intent(ClientDashActivity.this, ClientDetailActivity.class);
                 intent.putExtra("client_details", clientModel);
                 startActivity(intent);
             }

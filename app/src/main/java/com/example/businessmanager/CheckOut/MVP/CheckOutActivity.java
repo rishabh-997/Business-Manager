@@ -1,6 +1,7 @@
 package com.example.businessmanager.CheckOut.MVP;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -13,8 +14,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.businessmanager.Cart.MVP.CartActivity;
 import com.example.businessmanager.Cart.Model.CartList;
 import com.example.businessmanager.Cart.Model.CartResponse;
+import com.example.businessmanager.ClientDashboard.MVP.ClientDashActivity;
 import com.example.businessmanager.HomeActivity.model.ClientModel;
 import com.example.businessmanager.R;
 
@@ -81,7 +84,10 @@ public class CheckOutActivity extends AppCompatActivity implements CheckOutContr
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed();
+                finish();
+                Intent intent=new Intent(CheckOutActivity.this, CartActivity.class);
+                intent.putExtra("client_details", clientModel);
+                startActivity(intent);
             }
         });
     }
@@ -119,8 +125,4 @@ public class CheckOutActivity extends AppCompatActivity implements CheckOutContr
         total.setText(""+cost);
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
 }

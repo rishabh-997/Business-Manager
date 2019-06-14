@@ -20,12 +20,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ClientRegistration.MVP.ClientRegActivity" />
-        <activity android:name=".ClientDashboard.MVP.ClientDashActivity" />
-        <activity android:name=".ProductList.MVP.ProductListActivity" />
-        <activity android:name=".Cart.MVP.CartActivity" />
-        <activity android:name=".CheckOut.MVP.CheckOutActivity"/>
-        <activity android:name=".History.MVP.HistoryActivity"/>
+        <activity android:name=".ClientRegistration.MVP.ClientRegActivity"
+            android:label="Registration"/>
+        <activity android:name=".ClientDashboard.MVP.ClientDashActivity"
+            android:label="DashBoard"/>
+        <activity android:name=".ProductList.MVP.ProductListActivity"
+            android:label="Products"/>
+        <activity android:name=".Cart.MVP.CartActivity"
+            android:label="Cart"/>
+        <activity android:name=".CheckOut.MVP.CheckOutActivity"
+            android:label="CheckOut"/>
+        <activity android:name=".History.MVP.HistoryActivity"
+            android:label="Client History"/>
+        <activity android:name=".ClientDetails.MVP.ClientDetailActivity"
+            android:label="Client Details"/>
     </application>
 
 </manifest>

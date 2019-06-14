@@ -38,8 +38,8 @@ public class CheckOutAdapter extends RecyclerView.Adapter<CheckOutAdapter.ViewHo
         CartList cartList=list.get(i);
         viewHolder.name.setText(cartList.getName());
         viewHolder.unit.setText("Unit : "+cartList.getUnit());
-        viewHolder.size.setText(cartList.getSize());
-        viewHolder.costper.setText(cartList.getCost());
+        viewHolder.size.setText("Quantity"+cartList.getSize());
+        viewHolder.costper.setText("Cost/- "+cartList.getCost());
 
         viewHolder.cost.setText("Cost : "+cartList.getTotal_cost());
         viewHolder.gst.setText("GST Tax : "+cartList.getSgst());

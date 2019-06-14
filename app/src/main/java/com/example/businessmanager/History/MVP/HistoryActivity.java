@@ -68,7 +68,7 @@ public class HistoryActivity extends AppCompatActivity implements HistoryContrac
         String message="";
         for(int i=0;i<detailList.size();i++)
         {
-            String one="Order ID : "+detailList.get(i).getId()+"\n"+"Size : "+detailList.get(i).getSize()+"\n"+"Cost per item : "+detailList.get(i).getCost()+"\n"+"Unit : "+detailList.get(i).getUnit()+"\n"+"Total Cost : "+detailList.get(i).getTotal_cost();
+            String one="Order ID : "+detailList.get(i).getId()+"\n"+"Unit : "+detailList.get(i).getUnit()+"\n"+"Number of Units : "+detailList.get(i).getSize()+"\n"+"Cost per item : "+detailList.get(i).getCost()+"\n"+"Total Cost : "+detailList.get(i).getTotal_cost();
             message=message+one+"\n\n";
         }
 

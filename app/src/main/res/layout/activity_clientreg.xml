@@ -23,6 +23,7 @@
             android:layout_margin="6dp"
             android:textSize="20sp"
             android:hint="Enter Mobile"
+            android:inputType="number"
             android:id="@+id/client_mobile"  />
         <EditText
             android:layout_width="match_parent"
@@ -30,6 +31,7 @@
             android:layout_margin="6dp"
             android:textSize="20sp"
             android:hint="Enter Phone"
+            android:inputType="number"
             android:id="@+id/client_phone"  />
         <EditText
             android:layout_width="match_parent"

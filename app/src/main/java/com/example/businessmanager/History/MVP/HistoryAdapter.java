@@ -44,8 +44,8 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         HistoryList history=historyList.get(i);
         viewHolder.id.setText(history.getOrderId());
         viewHolder.date.setText(history.getDateOfPurchase());
-        viewHolder.cost.setText("COST : "+history.getTotalCost());
-        viewHolder.totalcost.setText("TOATL COST : "+history.getTotal_Cost_WTax());
+        viewHolder.cost.setText("Payable excluding GST: "+history.getTotalCost());
+        viewHolder.totalcost.setText("Payable including GST : "+history.getTotal_Cost_WTax());
         viewHolder.paymentterms.setText("PAYMENT TERMS : "+history.getPaymentTerms());
         viewHolder.paymentstatus.setText("PAYMENT STATUS : "+history.getPaymentStatus());
         viewHolder.orderstatus.setText("ORDER STATUS : "+history.getOrder_Status());

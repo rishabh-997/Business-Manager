@@ -31,20 +31,37 @@
             android:textColor="@android:color/white"/>
     </LinearLayout>
 
-    <Spinner
-        android:id="@+id/spinner"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_below="@id/lay1"
-        android:layout_margin="6dp"
-        android:background="#f2f2f2">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/lay5"
+        android:layout_below="@id/lay1">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="30dp"
+            android:background="#f2f2f2"
+            android:text="Payment Terms"
+            android:layout_margin="6dp"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:padding="2dp"/>
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:layout_height="30dp"
+            android:layout_margin="6dp"
+            android:background="#f2f2f2">
 
-    </Spinner>
+        </Spinner>
+    </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/spinner"
+        android:layout_below="@id/lay5"
         android:layout_marginTop="6dp"
         android:id="@+id/checkout_recyclerview">
 

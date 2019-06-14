@@ -10,7 +10,7 @@ public class HistoryDetailList
     String unit;
     @SerializedName("Cost")
     String cost;
-    @SerializedName("Total_Cost")
+    @SerializedName("TotalCost")
     String total_cost;
     @SerializedName("Product_id")
     String id;
