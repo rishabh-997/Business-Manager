@@ -121,7 +121,8 @@ public interface ClientAPI
             @Field("Contact_Type") String contacttype,
             @Field("Name") String name,
             @Field("MobileNumber") String mobile ,
-            @Field("Terms") String terms
+            @Field("Terms") String terms,
+            @Field("Comment") String comment
     );
 
     @POST("GetOrderHistory/")

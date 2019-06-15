@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,6 +47,8 @@ public class CheckOutActivity extends AppCompatActivity implements CheckOutContr
     TextView edit;
     @BindView(R.id.checkout_place)
     TextView place;
+    @BindView(R.id.commentbox)
+    EditText comment;
 
     String payment_terms="Advance";
 
@@ -94,7 +97,7 @@ public class CheckOutActivity extends AppCompatActivity implements CheckOutContr
 
     private void placeorder()
     {
-        presenter.placeorder("Client",clientModel.getName(),clientModel.getMobile(),payment_terms);
+        presenter.placeorder("Client",clientModel.getName(),clientModel.getMobile(),payment_terms,comment.getText().toString());
     }
 
     @Override

@@ -36,8 +36,8 @@ public class CheckOutPresenter implements CheckOutContract.presenter
     }
 
     @Override
-    public void placeorder(String client, String name, String mobile, String payment_terms) {
-        clientAPI.placeorder(client,name,mobile,payment_terms).enqueue(new Callback<PlaceOrderResponse>() {
+    public void placeorder(String client, String name, String mobile, String payment_terms,String comment) {
+        clientAPI.placeorder(client,name,mobile,payment_terms,comment).enqueue(new Callback<PlaceOrderResponse>() {
             @Override
             public void onResponse(Call<PlaceOrderResponse> call, Response<PlaceOrderResponse> response) {
                 if(response.isSuccessful())

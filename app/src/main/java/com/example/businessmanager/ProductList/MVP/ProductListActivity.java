@@ -248,14 +248,17 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
     public void showSpecs(SpecResponse body) {
         specifications=body.getSpecList();
 
-        String message="Solid           -    "+specifications.get(0).getSolid()+"\n"+
-                        "Solvent        -    "+specifications.get(0).getSolvent()+"\n"+
-                        "Type Of Oil    -    "+specifications.get(0).getTypeofoil()+"\n"+
-                        "Type Of Polyol -    "+specifications.get(0).getTypeofpolyol()+"\n"+
-                        "Oil            -    "+specifications.get(0).getOil()+"\n"+
-                        "Acid Value     -    "+specifications.get(0).getAcid()+"\n"+
-                        "Viscosity      -    "+specifications.get(0).getVisc()+"\n" +
-                        "Color Gardner  -    "+specifications.get(0).getColor();
+        String indent= "                 ";
+        String s1="Solid",s2="Solvent",s3="Type of Oil",s4="Type of PolyOl",s5="Oil",s6="Acid Value",s7="Viscosity",s8="Color Gardner";
+
+        String message= s1+indent.substring(0,indent.length()-s1.length())+"-       "+specifications.get(0).getSolid()+"\n"+
+                        s2+indent.substring(0,indent.length()-s2.length())+"-       "+specifications.get(0).getSolvent()+"\n"+
+                        s3+indent.substring(0,indent.length()-s3.length())+"-       "+specifications.get(0).getTypeofoil()+"\n"+
+                        s4+indent.substring(0,indent.length()-s4.length())+"-       "+specifications.get(0).getTypeofpolyol()+"\n"+
+                        s5+indent.substring(0,indent.length()-s5.length())+"-       "+specifications.get(0).getOil()+"\n"+
+                        s6+indent.substring(0,indent.length()-s6.length())+"-       "+specifications.get(0).getAcid()+"\n"+
+                        s7+indent.substring(0,indent.length()-s7.length())+"-       "+specifications.get(0).getVisc()+"\n" +
+                        s8+indent.substring(0,indent.length()-s8.length())+"-       "+specifications.get(0).getColor();
 
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
         builder.setCancelable(true);
