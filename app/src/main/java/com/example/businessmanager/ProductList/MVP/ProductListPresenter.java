@@ -2,7 +2,9 @@ package com.example.businessmanager.ProductList.MVP;
 
 import com.example.businessmanager.Cart.Model.CartResponse_CUD;
 import com.example.businessmanager.Model_common.UnitResponse;
+import com.example.businessmanager.ProductList.model.Comapny_response;
 import com.example.businessmanager.ProductList.model.Product_Response;
+import com.example.businessmanager.ProductList.model.SubCat_response;
 import com.example.businessmanager.Utilities.ClientAPI;
 import com.example.businessmanager.Utilities.Utils;
 
@@ -20,14 +22,64 @@ public class ProductListPresenter implements ProductListContract.presenter
     }
 
     @Override
-    public void getList() {
-        clientAPI.getProductList("client").enqueue(new Callback<Product_Response>() {
+    public void getCompany() {
+        clientAPI.getCompany("9935685103").enqueue(new Callback<Comapny_response>() {
+            @Override
+            public void onResponse(Call<Comapny_response> call, Response<Comapny_response> response) {
+                if(response.isSuccessful())
+                {
+                    if(response.body().getMessage().equals("successful"))
+                    {
+                        mvpview.showCompanies(response.body());
+                    }
+                    else
+                        mvpview.showtaost(response.message());
+                }
+            }
+            @Override
+            public void onFailure(Call<Comapny_response> call, Throwable t) {
+
+            }
+        });
+    }
+
+    @Override
+    public void getSubCategory(String company) {
+        clientAPI.getSubCat(company).enqueue(new Callback<SubCat_response>() {
+            @Override
+            public void onResponse(Call<SubCat_response> call, Response<SubCat_response> response) {
+                if(response.isSuccessful())
+                {
+                    if(response.body().getMessage().equals("successful"))
+                    {
+                        mvpview.showSubCategories(response.body());
+                    }
+                    else
+                        mvpview.showtaost(response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<SubCat_response> call, Throwable t) {
+
+            }
+        });
+    }
+
+    @Override
+    public void getList(String subcat) {
+        clientAPI.getProductList("client",subcat).enqueue(new Callback<Product_Response>() {
             @Override
             public void onResponse(Call<Product_Response> call, Response<Product_Response> response) {
                 if(response.isSuccessful())
-                    mvpview.showdata(response.body());
-                else
-                    mvpview.showtaost(response.message());
+                {
+                    if(response.body().getMessage().equals("successful"))
+                    {
+                        mvpview.showdata(response.body());
+                    }
+                    else
+                        mvpview.showtaost(response.message());
+                }
             }
 
             @Override

@@ -8,7 +8,9 @@ import com.example.businessmanager.HomeActivity.model.ResponseClient;
 import com.example.businessmanager.Cart.Model.CartResponse;
 import com.example.businessmanager.Cart.Model.CartResponse_CUD;
 import com.example.businessmanager.Model_common.UnitResponse;
+import com.example.businessmanager.ProductList.model.Comapny_response;
 import com.example.businessmanager.ProductList.model.Product_Response;
+import com.example.businessmanager.ProductList.model.SubCat_response;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -46,7 +48,20 @@ public interface ClientAPI
     @POST("ProductList/")
     @FormUrlEncoded
     Call<Product_Response> getProductList(
-            @Field("UserType") String usertype
+            @Field("UserType") String usertype,
+            @Field("SubCatergory") String subcat
+    );
+
+    @POST("CompanyList/")
+    @FormUrlEncoded
+    Call<Comapny_response> getCompany(
+            @Field("Mob") String mob
+    );
+
+    @POST("SubCateogry/")
+    @FormUrlEncoded
+    Call<SubCat_response> getSubCat(
+            @Field("Company") String company
     );
 
     @POST("AddCart/")
