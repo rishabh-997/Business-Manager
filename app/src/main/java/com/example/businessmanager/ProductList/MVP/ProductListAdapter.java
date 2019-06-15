@@ -61,9 +61,10 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     {
         TextView name,id,description,subcategory;
         ImageView imageView;
+        ImageView specs;
         onNoteClickListener listener;
 
-        public ViewHolder(@NonNull View itemView, onNoteClickListener listener)
+        public ViewHolder(@NonNull View itemView, final onNoteClickListener listener)
         {
             super(itemView);
             this.listener=listener;
@@ -72,8 +73,15 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             description=itemView.findViewById(R.id.prodlist_description);
             subcategory=itemView.findViewById(R.id.prodlist_subcat);
             imageView=itemView.findViewById(R.id.prodlist_image);
-
+            specs=itemView.findViewById(R.id.prodlist_specs);
             itemView.setOnClickListener(this);
+
+            specs.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onSpecClick(getAdapterPosition());
+                }
+            });
         }
 
         @Override
@@ -85,5 +93,6 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     public interface onNoteClickListener
     {
         void onNoteClick(int position);
+        void onSpecClick(int position);
     }
 }

@@ -10,6 +10,7 @@ import com.example.businessmanager.Cart.Model.CartResponse_CUD;
 import com.example.businessmanager.Model_common.UnitResponse;
 import com.example.businessmanager.ProductList.model.Comapny_response;
 import com.example.businessmanager.ProductList.model.Product_Response;
+import com.example.businessmanager.ProductList.model.SpecResponse;
 import com.example.businessmanager.ProductList.model.SubCat_response;
 
 import retrofit2.Call;
@@ -62,6 +63,12 @@ public interface ClientAPI
     @FormUrlEncoded
     Call<SubCat_response> getSubCat(
             @Field("Company") String company
+    );
+
+    @POST("SpecsDetails/")
+    @FormUrlEncoded
+    Call<SpecResponse> getSpecs(
+            @Field("SubCategory") String category
     );
 
     @POST("AddCart/")

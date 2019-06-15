@@ -48,11 +48,12 @@
             android:layout_weight="0.3"
             android:id="@+id/prodlist_id"
             android:text="Product id"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:textSize="15sp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:visibility="gone"
             android:layout_weight="0"
             android:id="@+id/prodlist_subcat"
             android:text="Product Subcategory"
@@ -75,6 +76,14 @@
 
     </LinearLayout>
 
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:elevation="12dp"
+        android:src="@drawable/ic_info_outline_black_24dp"
+        android:background="@android:color/white"
+        android:id="@+id/prodlist_specs"/>
 
 </RelativeLayout>
 </android.support.v7.widget.CardView>

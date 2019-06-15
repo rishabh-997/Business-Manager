@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
@@ -29,6 +31,8 @@ import com.example.businessmanager.ProductList.model.Comapany_list;
 import com.example.businessmanager.ProductList.model.Comapny_response;
 import com.example.businessmanager.ProductList.model.ProductList;
 import com.example.businessmanager.ProductList.model.Product_Response;
+import com.example.businessmanager.ProductList.model.SpecList;
+import com.example.businessmanager.ProductList.model.SpecResponse;
 import com.example.businessmanager.ProductList.model.SubCat_list;
 import com.example.businessmanager.ProductList.model.SubCat_response;
 import com.example.businessmanager.R;
@@ -86,6 +90,7 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
     List<Comapany_list> comapany_list=new ArrayList<>();
     List<SubCat_list> subcat_list=new ArrayList<>();
     List<ProductList> list=new ArrayList<>();
+    List<SpecList> specifications=new ArrayList<>();
 
     ProductListAdapter adapter;
     boolean isSheetClosed = true;
@@ -220,6 +225,7 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
             spinner_category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    SubCategory=spinner_category.getSelectedItem().toString();
                     presenter.getList(spinner_category.getSelectedItem().toString());
                 }
 
@@ -236,6 +242,26 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
             ArrayAdapter<String> adapter = new ArrayAdapter<>(ProductListActivity.this, android.R.layout.simple_list_item_1, cat);
             spinner_category.setAdapter(adapter);
         }
+    }
+
+    @Override
+    public void showSpecs(SpecResponse body) {
+        specifications=body.getSpecList();
+
+        String message="Solid           -    "+specifications.get(0).getSolid()+"\n"+
+                        "Solvent        -    "+specifications.get(0).getSolvent()+"\n"+
+                        "Type Of Oil    -    "+specifications.get(0).getTypeofoil()+"\n"+
+                        "Type Of Polyol -    "+specifications.get(0).getTypeofpolyol()+"\n"+
+                        "Oil            -    "+specifications.get(0).getOil()+"\n"+
+                        "Acid Value     -    "+specifications.get(0).getAcid()+"\n"+
+                        "Viscosity      -    "+specifications.get(0).getVisc()+"\n" +
+                        "Color Gardner  -    "+specifications.get(0).getColor();
+
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(SubCategory);
+        builder.setMessage(message);
+        builder.show();
     }
 
     private void setCategory(String Company)
@@ -308,6 +334,12 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
                addinCart(position);
             }
         });
+    }
+
+    @Override
+    public void onSpecClick(int position)
+    {
+        presenter.getSpecs(SubCategory);
     }
 
     private void addinCart(int position)
