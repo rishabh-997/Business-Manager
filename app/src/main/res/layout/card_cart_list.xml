@@ -136,7 +136,7 @@
             android:textAlignment="center"
             android:textSize="15sp"
             android:textColor="@android:color/white"
-            android:background="@android:color/holo_red_light"/>
+            android:background="#94593397"/>
 
     </LinearLayout>
     </LinearLayout>

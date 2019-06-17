@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Business Manager</string>
+    <string name="app_name">SORPL</string>
     <string name="Open">open</string>
     <string name="Close">close</string>
     <string name="title_activity_test">test</string>

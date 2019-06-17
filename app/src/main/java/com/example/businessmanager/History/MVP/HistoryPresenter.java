@@ -2,8 +2,8 @@ package com.example.businessmanager.History.MVP;
 
 import com.example.businessmanager.History.Model.HistoryDetailResponse;
 import com.example.businessmanager.History.Model.HistoryResponse;
-import com.example.businessmanager.Utilities.ClientAPI;
-import com.example.businessmanager.Utilities.Utils;
+import com.example.businessmanager.Utilities.Network.ClientAPI;
+import com.example.businessmanager.Utilities.Network.Utils;
 
 import retrofit2.Call;
 import retrofit2.Callback;

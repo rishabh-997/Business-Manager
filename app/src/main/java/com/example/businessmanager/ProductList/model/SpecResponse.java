@@ -13,7 +13,7 @@ public class SpecResponse
     @SerializedName("message")
     @Expose
     String message;
-    @SerializedName("unit_list")
+    @SerializedName("specs_list")
     @Expose
     List<SpecList> specList;
 

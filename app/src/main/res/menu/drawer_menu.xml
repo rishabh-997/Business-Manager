@@ -11,4 +11,8 @@
         android:title="Add client"
         android:id="@+id/nav_client"/>
 
+    <item
+        android:title="Log Out"
+        android:id="@+id/nav_logout"/>
+
 </menu>

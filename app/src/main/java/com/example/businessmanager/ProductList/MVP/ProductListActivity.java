@@ -247,22 +247,20 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
     @Override
     public void showSpecs(SpecResponse body) {
         specifications=body.getSpecList();
-
+        String nospecs="No Specification details";
         String indent= "                 ";
-        String s1="Solid",s2="Solvent",s3="Type of Oil",s4="Type of PolyOl",s5="Oil",s6="Acid Value",s7="Viscosity",s8="Color Gardner";
+        String message="";
+        for(int i=0;i<specifications.size();i++)
+        {
+            message=message+specifications.get(i).getHeading()+" - "+specifications.get(i).getValue()+"\n";
+        }
 
-        String message= s1+indent.substring(0,indent.length()-s1.length())+"-       "+specifications.get(0).getSolid()+"\n"+
-                        s2+indent.substring(0,indent.length()-s2.length())+"-       "+specifications.get(0).getSolvent()+"\n"+
-                        s3+indent.substring(0,indent.length()-s3.length())+"-       "+specifications.get(0).getTypeofoil()+"\n"+
-                        s4+indent.substring(0,indent.length()-s4.length())+"-       "+specifications.get(0).getTypeofpolyol()+"\n"+
-                        s5+indent.substring(0,indent.length()-s5.length())+"-       "+specifications.get(0).getOil()+"\n"+
-                        s6+indent.substring(0,indent.length()-s6.length())+"-       "+specifications.get(0).getAcid()+"\n"+
-                        s7+indent.substring(0,indent.length()-s7.length())+"-       "+specifications.get(0).getVisc()+"\n" +
-                        s8+indent.substring(0,indent.length()-s8.length())+"-       "+specifications.get(0).getColor();
+        if(specifications.size()==0)
+            message=nospecs;
 
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
         builder.setCancelable(true);
-        builder.setTitle(SubCategory);
+        builder.setTitle("Specifications");
         builder.setMessage(message);
         builder.show();
     }
@@ -342,7 +340,7 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
     @Override
     public void onSpecClick(int position)
     {
-        presenter.getSpecs(SubCategory);
+        presenter.getSpecs(list.get(position).getName());
     }
 
     private void addinCart(int position)

@@ -2,8 +2,8 @@ package com.example.businessmanager.CheckOut.MVP;
 
 import com.example.businessmanager.Cart.Model.CartResponse;
 import com.example.businessmanager.CheckOut.Model.PlaceOrderResponse;
-import com.example.businessmanager.Utilities.ClientAPI;
-import com.example.businessmanager.Utilities.Utils;
+import com.example.businessmanager.Utilities.Network.ClientAPI;
+import com.example.businessmanager.Utilities.Network.Utils;
 
 import retrofit2.Call;
 import retrofit2.Callback;

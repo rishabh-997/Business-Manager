@@ -1,7 +1,7 @@
 package com.example.businessmanager.ClientRegistration.MVP;
 
-import com.example.businessmanager.Utilities.ClientAPI;
-import com.example.businessmanager.Utilities.Utils;
+import com.example.businessmanager.Utilities.Network.ClientAPI;
+import com.example.businessmanager.Utilities.Network.Utils;
 import com.example.businessmanager.ClientRegistration.model.ResponseBody;
 
 import retrofit2.Call;

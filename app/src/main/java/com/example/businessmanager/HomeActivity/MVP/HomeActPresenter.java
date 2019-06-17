@@ -1,8 +1,8 @@
 package com.example.businessmanager.HomeActivity.MVP;
 
 import com.example.businessmanager.HomeActivity.model.ResponseClient;
-import com.example.businessmanager.Utilities.ClientAPI;
-import com.example.businessmanager.Utilities.Utils;
+import com.example.businessmanager.Utilities.Network.ClientAPI;
+import com.example.businessmanager.Utilities.Network.Utils;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,7 +24,6 @@ public class HomeActPresenter implements HomeActContract.presenter
             @Override
             public void onResponse(Call<ResponseClient> call, Response<ResponseClient> response) {
                 if(response.isSuccessful()) {
-                    mvpview.showToast("Here");
                     mvpview.showData(response.body());
                 }
                 else

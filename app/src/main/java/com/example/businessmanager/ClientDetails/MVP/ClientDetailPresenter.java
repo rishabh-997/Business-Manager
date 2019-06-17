@@ -1,7 +1,7 @@
 package com.example.businessmanager.ClientDetails.MVP;
 
-import com.example.businessmanager.Utilities.ClientAPI;
-import com.example.businessmanager.Utilities.Utils;
+import com.example.businessmanager.Utilities.Network.ClientAPI;
+import com.example.businessmanager.Utilities.Network.Utils;
 
 public class ClientDetailPresenter implements ClientDetailContract.presenter
 {

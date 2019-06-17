@@ -6,8 +6,8 @@ import com.example.businessmanager.ProductList.model.Comapny_response;
 import com.example.businessmanager.ProductList.model.Product_Response;
 import com.example.businessmanager.ProductList.model.SpecResponse;
 import com.example.businessmanager.ProductList.model.SubCat_response;
-import com.example.businessmanager.Utilities.ClientAPI;
-import com.example.businessmanager.Utilities.Utils;
+import com.example.businessmanager.Utilities.Network.ClientAPI;
+import com.example.businessmanager.Utilities.Network.Utils;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -91,8 +91,8 @@ public class ProductListPresenter implements ProductListContract.presenter
     }
 
     @Override
-    public void getSpecs(String category) {
-        clientAPI.getSpecs(category).enqueue(new Callback<SpecResponse>() {
+    public void getSpecs(String name) {
+        clientAPI.getSpecs(name).enqueue(new Callback<SpecResponse>() {
             @Override
             public void onResponse(Call<SpecResponse> call, Response<SpecResponse> response) {
                 if(response.isSuccessful())

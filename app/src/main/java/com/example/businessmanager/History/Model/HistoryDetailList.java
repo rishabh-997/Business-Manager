@@ -12,7 +12,7 @@ public class HistoryDetailList
     String cost;
     @SerializedName("TotalCost")
     String total_cost;
-    @SerializedName("Product_id")
+    @SerializedName("Product_Name")
     String id;
 
     public String getSize() {
