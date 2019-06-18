@@ -8,12 +8,14 @@ public class CartContract
     {
         void showToast(String message);
         void showCart(CartResponse body);
+
+        void clear();
     }
     interface presenter
     {
         void updateCart(String mobile,String pid,String size,String unit,String cost);
         void deleteCart(String mobile,String pid);
-        void deleteAll(String mobile);
-        void getCart(String mobile);
+        void deleteAll(String mobile,String company);
+        void getCart(String mobile,String company);
     }
 }

@@ -72,11 +72,13 @@
         android:background="#f2f2f2"
         android:id="@+id/commentbox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_above="@+id/lay6"
         android:padding="2dp"
         android:layout_margin="2dp"
-        android:hint="Enter The comment Here"/>
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:hint="Enter Your comment Here"/>
 
     <LinearLayout
         android:id="@+id/lay6"

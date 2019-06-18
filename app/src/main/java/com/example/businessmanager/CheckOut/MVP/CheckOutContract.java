@@ -8,12 +8,14 @@ public class CheckOutContract
     {
         void showToast(String message);
         void showCart(CartResponse body);
+
+        void close();
     }
     interface presenter
     {
 
-        void getCart(String mobile);
+        void getCart(String mobile,String company);
 
-        void placeorder(String client, String name, String mobile, String payment_terms, String comment);
+        void placeorder(String client, String name, String mobile, String payment_terms, String comment,String company);
     }
 }

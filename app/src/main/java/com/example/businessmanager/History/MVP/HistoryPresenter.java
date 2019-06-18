@@ -19,9 +19,9 @@ public class HistoryPresenter implements HistoryContract.presenter
     }
 
     @Override
-    public void getHistory(String mobile, String client)
+    public void getHistory(String mobile, String client,String company)
     {
-        clientAPI.getOrderHistory(mobile,client).enqueue(new Callback<HistoryResponse>() {
+        clientAPI.getOrderHistory(mobile,client,company).enqueue(new Callback<HistoryResponse>() {
             @Override
             public void onResponse(Call<HistoryResponse> call, Response<HistoryResponse> response) {
                 if(response.isSuccessful())

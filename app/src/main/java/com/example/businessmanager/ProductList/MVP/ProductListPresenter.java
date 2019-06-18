@@ -68,8 +68,8 @@ public class ProductListPresenter implements ProductListContract.presenter
     }
 
     @Override
-    public void getList(String subcat) {
-        clientAPI.getProductList("client",subcat).enqueue(new Callback<Product_Response>() {
+    public void getList(String subcat,String company) {
+        clientAPI.getProductList("client",subcat,company).enqueue(new Callback<Product_Response>() {
             @Override
             public void onResponse(Call<Product_Response> call, Response<Product_Response> response) {
                 if(response.isSuccessful())

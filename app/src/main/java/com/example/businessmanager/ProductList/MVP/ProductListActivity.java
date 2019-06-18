@@ -36,6 +36,7 @@ import com.example.businessmanager.ProductList.model.SpecResponse;
 import com.example.businessmanager.ProductList.model.SubCat_list;
 import com.example.businessmanager.ProductList.model.SubCat_response;
 import com.example.businessmanager.R;
+import com.example.businessmanager.Utilities.SharedPref;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -92,6 +93,7 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
     List<ProductList> list=new ArrayList<>();
     List<SpecList> specifications=new ArrayList<>();
 
+    SharedPref sharedPref;
     ProductListAdapter adapter;
     boolean isSheetClosed = true;
     String cost,size, unit;
@@ -114,7 +116,11 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
 
         clientModel=(ClientModel)getIntent().getExtras().getSerializable("client_details");
         presenter.getUnit();
-        presenter.getCompany();
+
+        sharedPref=new SharedPref(this);
+        CompanyNameShort=sharedPref.getCompany();
+        presenter.getSubCategory(CompanyNameShort);
+
 
         sheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
@@ -226,7 +232,7 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     SubCategory=spinner_category.getSelectedItem().toString();
-                    presenter.getList(spinner_category.getSelectedItem().toString());
+                    presenter.getList(spinner_category.getSelectedItem().toString(),CompanyNameShort);
                 }
 
                 @Override
@@ -274,8 +280,6 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
                 break;
             }
         }
-
-        presenter.getSubCategory(CompanyNameShort);
     }
 
     @Override
@@ -332,7 +336,19 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
             @Override
             public void onClick(View v)
             {
-               addinCart(position);
+                if(cart_price.getText().toString().isEmpty())
+                    Toast.makeText(ProductListActivity.this, "Please Enter The Price", Toast.LENGTH_SHORT).show();
+
+                else {
+                    addinCart(position);
+                    onBackPressed();
+                }
+            }
+        });
+        cart_cross.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
     }

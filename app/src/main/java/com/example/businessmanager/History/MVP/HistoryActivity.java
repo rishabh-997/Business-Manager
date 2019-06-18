@@ -15,6 +15,7 @@ import com.example.businessmanager.History.Model.HistoryList;
 import com.example.businessmanager.History.Model.HistoryResponse;
 import com.example.businessmanager.HomeActivity.model.ClientModel;
 import com.example.businessmanager.R;
+import com.example.businessmanager.Utilities.SharedPref;
 import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class HistoryActivity extends AppCompatActivity implements HistoryContrac
 {
     HistoryContract.presenter presenter;
     ClientModel clientModel;
+    SharedPref sharedPref;
 
     @BindView(R.id.history_name)
     TextView name;
@@ -41,11 +43,12 @@ public class HistoryActivity extends AppCompatActivity implements HistoryContrac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
         ButterKnife.bind(this);
+        sharedPref=new SharedPref(this);
 
         presenter=new HistoryPresenter(this);
         clientModel=(ClientModel)getIntent().getExtras().getSerializable("client_details");
         name.setText(clientModel.getName());
-        presenter.getHistory(clientModel.getMobile(),"Client");
+        presenter.getHistory(clientModel.getMobile(),"Client",sharedPref.getCompany());
     }
 
     @Override

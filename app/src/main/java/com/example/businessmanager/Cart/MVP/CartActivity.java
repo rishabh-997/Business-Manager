@@ -17,6 +17,7 @@ import com.example.businessmanager.Cart.Model.CartResponse;
 import com.example.businessmanager.CheckOut.MVP.CheckOutActivity;
 import com.example.businessmanager.HomeActivity.model.ClientModel;
 import com.example.businessmanager.R;
+import com.example.businessmanager.Utilities.SharedPref;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +35,7 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
 
     Animation open,close,forward,backward;
     Boolean isFabOpen=false;
+    SharedPref sharedPref;
 
     @BindView(R.id.cart_final_recyclerview)
     RecyclerView recyclerView;
@@ -51,6 +53,7 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
         setContentView(R.layout.activity_cart);
         presenter=new CartPresenter(this);
         ButterKnife.bind(this);
+        sharedPref=new SharedPref(this);
 
         open= AnimationUtils.loadAnimation(this,R.anim.fab_open);
         close= AnimationUtils.loadAnimation(this,R.anim.fab_close);
@@ -58,7 +61,7 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
         backward= AnimationUtils.loadAnimation(this,R.anim.rotate_back);
 
         clientModel=(ClientModel)getIntent().getExtras().getSerializable("client_details");
-        presenter.getCart(clientModel.getMobile());
+        presenter.getCart(clientModel.getMobile(),sharedPref.getCompany());
 
         fab_main.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +80,7 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
         fab_deleteall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.deleteAll(clientModel.getMobile());
+                presenter.deleteAll(clientModel.getMobile(),sharedPref.getCompany());
             }
         });
     }
@@ -95,6 +98,12 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter=new CartAdapter(list,this,this);
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void clear() {
+        list.clear();
+        adapter.notifyDataSetChanged();
     }
 
     @Override

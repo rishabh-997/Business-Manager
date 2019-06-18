@@ -50,24 +50,40 @@ public class CartPresenter implements CartContract.presenter
     }
 
     @Override
-    public void deleteAll(String mobile) {
-        clientAPI.deleteallProduct(mobile).enqueue(new Callback<CartResponse_CUD>() {
+    public void deleteAll(String mobile,String company) {
+        clientAPI.deleteallProduct(mobile,company).enqueue(new Callback<CartResponse_CUD>() {
             @Override
-            public void onResponse(Call<CartResponse_CUD> call, Response<CartResponse_CUD> response) {
-                mvpview.showToast("Deleted Everything");
+            public void onResponse(Call<CartResponse_CUD> call, Response<CartResponse_CUD> response)
+            {
+                if(response.isSuccessful())
+                {
+                    if(response.body().getMessage().equals("Successful"))
+                    {
+                        mvpview.showToast("Deleted Everything");
+                        mvpview.clear();
+                    }
+                    else
+                    {
+                        mvpview.showToast(response.body().getMessage());
+                    }
+                }
+                else
+                {
+                    mvpview.showToast(response.message());
+                }
             }
 
             @Override
             public void onFailure(Call<CartResponse_CUD> call, Throwable t) {
-
+                mvpview.showToast(t.getMessage());
             }
         });
     }
 
     @Override
-    public void getCart(String mobile)
+    public void getCart(String mobile,String company)
     {
-        clientAPI.getCart(mobile).enqueue(new Callback<CartResponse>() {
+        clientAPI.getCart(mobile,company).enqueue(new Callback<CartResponse>() {
             @Override
             public void onResponse(Call<CartResponse> call, Response<CartResponse> response) {
                 if(response.isSuccessful())

@@ -19,9 +19,9 @@ public class CheckOutPresenter implements CheckOutContract.presenter
     }
 
     @Override
-    public void getCart(String mobile)
+    public void getCart(String mobile,String Company)
     {
-        clientAPI.getCart(mobile).enqueue(new Callback<CartResponse>() {
+        clientAPI.getCart(mobile,Company).enqueue(new Callback<CartResponse>() {
             @Override
             public void onResponse(Call<CartResponse> call, Response<CartResponse> response) {
                 if(response.isSuccessful())
@@ -36,8 +36,8 @@ public class CheckOutPresenter implements CheckOutContract.presenter
     }
 
     @Override
-    public void placeorder(String client, String name, String mobile, String payment_terms,String comment) {
-        clientAPI.placeorder(client,name,mobile,payment_terms,comment).enqueue(new Callback<PlaceOrderResponse>() {
+    public void placeorder(String client, String name, String mobile, String payment_terms,String comment,String company) {
+        clientAPI.placeorder(client,name,mobile,payment_terms,comment,company).enqueue(new Callback<PlaceOrderResponse>() {
             @Override
             public void onResponse(Call<PlaceOrderResponse> call, Response<PlaceOrderResponse> response) {
                 if(response.isSuccessful())
@@ -45,6 +45,7 @@ public class CheckOutPresenter implements CheckOutContract.presenter
                     if(response.body().getMessage().equals("Successful"))
                     {
                         mvpview.showToast("Your Order Id is "+response.body().getOrderid());
+                        mvpview.close();
                     }
                     else
                         mvpview.showToast("Error Occured ! Try Again");

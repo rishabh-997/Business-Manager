@@ -21,6 +21,7 @@ import com.example.businessmanager.Cart.Model.CartResponse;
 import com.example.businessmanager.ClientDashboard.MVP.ClientDashActivity;
 import com.example.businessmanager.HomeActivity.model.ClientModel;
 import com.example.businessmanager.R;
+import com.example.businessmanager.Utilities.SharedPref;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +35,7 @@ public class CheckOutActivity extends AppCompatActivity implements CheckOutContr
     ClientModel clientModel;
     List<CartList> list=new ArrayList<>();
     CheckOutAdapter checkOutAdapter;
+    SharedPref sharedPref;
 
     @BindView(R.id.checkout_recyclerview)
     RecyclerView recyclerView;
@@ -57,11 +59,14 @@ public class CheckOutActivity extends AppCompatActivity implements CheckOutContr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
         ButterKnife.bind(this);
+        sharedPref=new SharedPref(this);
 
         presenter=new CheckOutPresenter(this);
         clientModel=(ClientModel)getIntent().getExtras().getSerializable("client_details");
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
 
-        presenter.getCart(clientModel.getMobile());
+        presenter.getCart(clientModel.getMobile(),sharedPref.getCompany());
 
         final String[] spinnerValueHoldValue = {"Advance", "15 Days", "30 Days", "60 Days","90 Days"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(CheckOutActivity.this, android.R.layout.simple_list_item_1, spinnerValueHoldValue);
@@ -77,10 +82,14 @@ public class CheckOutActivity extends AppCompatActivity implements CheckOutContr
 
             }
         });
+
         place.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                placeorder();
+                if(list.size()==0)
+                    Toast.makeText(CheckOutActivity.this, "Please Add Items In The Cart Or Try After Some Time", Toast.LENGTH_LONG).show();
+                else
+                    placeorder();
             }
         });
         name.setText(clientModel.getName());
@@ -97,7 +106,7 @@ public class CheckOutActivity extends AppCompatActivity implements CheckOutContr
 
     private void placeorder()
     {
-        presenter.placeorder("Client",clientModel.getName(),clientModel.getMobile(),payment_terms,comment.getText().toString());
+        presenter.placeorder("Client",clientModel.getName(),clientModel.getMobile(),payment_terms,comment.getText().toString(),sharedPref.getCompany());
     }
 
     @Override
@@ -108,12 +117,17 @@ public class CheckOutActivity extends AppCompatActivity implements CheckOutContr
     @Override
     public void showCart(CartResponse body)
     {
+        list.clear();
         list=body.getList();
         showCost();
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         checkOutAdapter=new CheckOutAdapter(this,list);
         recyclerView.setAdapter(checkOutAdapter);
+    }
+
+    @Override
+    public void close() {
+        finish();
+        startActivity(new Intent(this,ClientDashActivity.class));
     }
 
     @SuppressLint("SetTextI18n")

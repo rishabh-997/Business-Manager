@@ -16,7 +16,7 @@ public class HistoryContract
     interface presenter
     {
 
-        void getHistory(String mobile, String client);
+        void getHistory(String mobile, String client,String company);
 
         void getDetails(String orderid);
     }

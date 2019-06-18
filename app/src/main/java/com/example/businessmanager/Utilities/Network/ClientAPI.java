@@ -59,7 +59,8 @@ public interface ClientAPI
     @FormUrlEncoded
     Call<Product_Response> getProductList(
             @Field("UserType") String usertype,
-            @Field("SubCatergory") String subcat
+            @Field("SubCatergory") String subcat,
+            @Field("Company") String company
     );
 
     @POST("CompanyList/")
@@ -109,13 +110,15 @@ public interface ClientAPI
     @POST("DeleteAllCart/")
     @FormUrlEncoded
     Call<CartResponse_CUD> deleteallProduct(
-            @Field("MobileNumber") String mobile
+            @Field("MobileNumber") String mobile,
+            @Field("Company") String company
     );
 
     @POST("CartDetails/")
     @FormUrlEncoded
     Call<CartResponse> getCart(
-            @Field("MobileNumber") String mobile
+            @Field("MobileNumber") String mobile,
+            @Field("Company") String company
     );
 
     @POST("GetUnitData/")
@@ -131,14 +134,16 @@ public interface ClientAPI
             @Field("Name") String name,
             @Field("MobileNumber") String mobile ,
             @Field("Terms") String terms,
-            @Field("Comment") String comment
+            @Field("Comment") String comment,
+            @Field("Company") String company
     );
 
     @POST("GetOrderHistory/")
     @FormUrlEncoded
     Call<HistoryResponse> getOrderHistory(
             @Field("MobileNumber") String mob,
-            @Field("Contact_Type") String type
+            @Field("Contact_Type") String type,
+            @Field("Company") String company
     );
 
     @POST("GetOrderDetailsHistory/")
