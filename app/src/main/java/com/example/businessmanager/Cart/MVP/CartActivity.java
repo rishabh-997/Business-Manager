@@ -10,11 +10,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.businessmanager.Cart.Model.CartList;
 import com.example.businessmanager.Cart.Model.CartResponse;
 import com.example.businessmanager.CheckOut.MVP.CheckOutActivity;
+import com.example.businessmanager.ClientDashboard.MVP.ClientDashActivity;
 import com.example.businessmanager.HomeActivity.model.ClientModel;
 import com.example.businessmanager.R;
 import com.example.businessmanager.Utilities.SharedPref;
@@ -45,6 +47,8 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
     FloatingActionButton fab_place;
     @BindView(R.id.fab_deleteall)
     FloatingActionButton fab_deleteall;
+    @BindView(R.id.cart_empty)
+    ImageView cartempty;
 
 
     @Override
@@ -83,6 +87,16 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
                 presenter.deleteAll(clientModel.getMobile(),sharedPref.getCompany());
             }
         });
+
+        cartempty.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                Intent intent=new Intent(CartActivity.this, ClientDashActivity.class);
+                intent.putExtra("client_details", clientModel);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -94,15 +108,23 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
     public void showCart(CartResponse body)
     {
         list=body.getList();
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter=new CartAdapter(list,this,this);
-        recyclerView.setAdapter(adapter);
+        if(list.size()==0)
+        {
+            cartempty.setVisibility(View.VISIBLE);
+        }
+        else {
+            cartempty.setVisibility(View.GONE);
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            adapter = new CartAdapter(list, this, this);
+            recyclerView.setAdapter(adapter);
+        }
     }
 
     @Override
     public void clear() {
         list.clear();
+        cartempty.setVisibility(View.VISIBLE);
         adapter.notifyDataSetChanged();
     }
 

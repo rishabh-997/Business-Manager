@@ -9,6 +9,7 @@ public class SharedPref
     private static final String KEY_ACCESS_TOKEN = "access_token";
     private static final String COMPANY_NAME="company";
     private static final String PREF_NAME = "welcome";
+    private static final String FIRST_TIME = "first";
 
     SharedPreferences pref;
     SharedPreferences.Editor editor;
@@ -25,7 +26,7 @@ public class SharedPref
 
 
     public String getAccessToken() {
-        return pref.getString(KEY_ACCESS_TOKEN, null);
+        return pref.getString(KEY_ACCESS_TOKEN, "");
     }
     public void setAccessToken(String accessToken) {
         editor.putString(KEY_ACCESS_TOKEN, accessToken);
@@ -34,7 +35,7 @@ public class SharedPref
 
     public String getKeyAccessLevel()
     {
-        return pref.getString(KEY_ACCESS_LEVEL,null);
+        return pref.getString(KEY_ACCESS_LEVEL,"");
     }
     public void setKeyAccessLevel(String accessLevel)
     {
@@ -51,4 +52,5 @@ public class SharedPref
         editor.putString(COMPANY_NAME,company);
         editor.commit();
     }
+
 }

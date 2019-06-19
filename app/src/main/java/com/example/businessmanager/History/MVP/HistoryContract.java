@@ -11,13 +11,13 @@ public class HistoryContract
 
         void showList(HistoryResponse body);
 
-        void showDetails(HistoryDetailResponse body,String id);
+        void showDetails(HistoryDetailResponse body,String id,String comment);
     }
     interface presenter
     {
 
         void getHistory(String mobile, String client,String company);
 
-        void getDetails(String orderid);
+        void getDetails(String orderid,String comment);
     }
 }

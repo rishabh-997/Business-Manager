@@ -18,6 +18,12 @@ public class HistoryList
     String PaymentTerms;
     @SerializedName("Order_Status")
     String Order_Status;
+    @SerializedName("Comment")
+    String comment;
+
+    public String getComment() {
+        return comment;
+    }
 
     public String getOrderId() {
         return OrderId;

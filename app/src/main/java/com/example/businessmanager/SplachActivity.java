@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import com.example.businessmanager.HomeActivity.MVP.HoomeActivity;
 import com.example.businessmanager.Login.MVP.LogInActivity;
@@ -17,8 +18,8 @@ public class SplachActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         getSupportActionBar().hide();
-
         SharedPref sharedPref=new SharedPref(this);
+
         if(sharedPref.getAccessToken()=="")
         {
             Handler.postDelayed(new Runnable() {
@@ -41,7 +42,5 @@ public class SplachActivity extends AppCompatActivity
                 }
             },1500);
         }
-
-
     }
 }

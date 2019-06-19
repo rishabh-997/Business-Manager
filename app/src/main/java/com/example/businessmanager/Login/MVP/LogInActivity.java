@@ -60,6 +60,9 @@ public class LogInActivity extends AppCompatActivity implements LogInContract.vi
         sharedPref.setAccessToken(body.getAccess_token());
         sharedPref.setKeyAccessLevel(body.getAccess_level());
 
+        Log.i("Access Token",sharedPref.getAccessToken());
+        Log.i("Fcm",MyApplication.getFcm());
+
         finish();
         startActivity(new Intent(this,HoomeActivity.class));
     }

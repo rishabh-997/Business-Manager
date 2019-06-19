@@ -43,7 +43,7 @@ public class HistoryPresenter implements HistoryContract.presenter
     }
 
     @Override
-    public void getDetails(final String orderid) {
+    public void getDetails(final String orderid, final String comment) {
         clientAPI.getOrderDetailsHistory(orderid).enqueue(new Callback<HistoryDetailResponse>() {
             @Override
             public void onResponse(Call<HistoryDetailResponse> call, Response<HistoryDetailResponse> response) {
@@ -51,7 +51,7 @@ public class HistoryPresenter implements HistoryContract.presenter
                 {
                     if(response.body().getMessage().equals("successful"))
                     {
-                        mvpview.showDetails(response.body(),orderid);
+                        mvpview.showDetails(response.body(),orderid,comment);
                     }
                     else
                         mvpview.showToast(response.body().getMessage());

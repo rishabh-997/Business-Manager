@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +25,7 @@ import com.example.businessmanager.HomeActivity.model.ClientModel;
 import com.example.businessmanager.R;
 import com.example.businessmanager.Utilities.SharedPref;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,6 +54,10 @@ public class CheckOutActivity extends AppCompatActivity implements CheckOutContr
     TextView place;
     @BindView(R.id.commentbox)
     EditText comment;
+    @BindView(R.id.checkout_empty)
+    ImageView cartempty;
+    @BindView(R.id.lay5)
+    LinearLayout linearLayout;
 
     String payment_terms="Advance";
 
@@ -80,6 +87,16 @@ public class CheckOutActivity extends AppCompatActivity implements CheckOutContr
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
+
+        cartempty.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                Intent intent=new Intent(CheckOutActivity.this, ClientDashActivity.class);
+                intent.putExtra("client_details", clientModel);
+                startActivity(intent);
             }
         });
 
@@ -119,15 +136,30 @@ public class CheckOutActivity extends AppCompatActivity implements CheckOutContr
     {
         list.clear();
         list=body.getList();
-        showCost();
-        checkOutAdapter=new CheckOutAdapter(this,list);
-        recyclerView.setAdapter(checkOutAdapter);
+        if(list.size()==0)
+        {
+            comment.setVisibility(View.GONE);
+            cartempty.setVisibility(View.VISIBLE);
+            linearLayout.setVisibility(View.GONE);
+        }
+        else {
+            comment.setVisibility(View.VISIBLE);
+            linearLayout.setVisibility(View.VISIBLE);
+            cartempty.setVisibility(View.GONE);
+            showCost();
+            checkOutAdapter = new CheckOutAdapter(this, list);
+            recyclerView.setAdapter(checkOutAdapter);
+        }
     }
 
     @Override
     public void close() {
-        finish();
-        startActivity(new Intent(this,ClientDashActivity.class));
+        total.setText("0.0");
+        list.clear();
+        comment.setVisibility(View.GONE);
+        cartempty.setVisibility(View.VISIBLE);
+        linearLayout.setVisibility(View.GONE);
+        checkOutAdapter.notifyDataSetChanged();
     }
 
     @SuppressLint("SetTextI18n")

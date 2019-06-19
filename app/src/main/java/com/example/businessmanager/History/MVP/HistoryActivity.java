@@ -19,6 +19,7 @@ import com.example.businessmanager.Utilities.SharedPref;
 import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;
@@ -59,6 +60,7 @@ public class HistoryActivity extends AppCompatActivity implements HistoryContrac
     @Override
     public void showList(HistoryResponse body) {
         list=body.getHistoryList();
+        Collections.reverse(list);
         adapter=new HistoryAdapter(this,list,this);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -66,15 +68,20 @@ public class HistoryActivity extends AppCompatActivity implements HistoryContrac
     }
 
     @Override
-    public void showDetails(HistoryDetailResponse body,String id) {
+    public void showDetails(HistoryDetailResponse body,String id,String comment) {
         List<HistoryDetailList> detailList=body.getHistoryDetailList();
+        if(comment.trim().isEmpty())
+            comment="No Comment Found";
+
         String title=id;
-        String message="";
+        String message="Additional Info. \n"+comment+"\n\n";
+
         for(int i=0;i<detailList.size();i++)
         {
-            String one="Order ID : "+detailList.get(i).getId()+"\n"+"Unit : "+detailList.get(i).getUnit()+"\n"+"Number of Units : "+detailList.get(i).getSize()+"\n"+"Cost per item : "+detailList.get(i).getCost()+"\n"+"Total Cost : "+detailList.get(i).getTotal_cost();
+            String one="Product : "+detailList.get(i).getId()+"\n"+"Unit : "+detailList.get(i).getUnit()+"\n"+"Number of Units : "+detailList.get(i).getSize()+"\n"+"Cost per item : "+detailList.get(i).getCost()+"\n"+"Total Cost : "+detailList.get(i).getTotal_cost();
             message=message+one+"\n\n";
         }
+
 
         message.trim();
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
@@ -87,6 +94,7 @@ public class HistoryActivity extends AppCompatActivity implements HistoryContrac
     @Override
     public void onNoteClick(int position) {
         String orderid=list.get(position).getOrderId();
-        presenter.getDetails(orderid);
+        String comment=list.get(position).getComment();
+        presenter.getDetails(orderid,comment);
     }
 }

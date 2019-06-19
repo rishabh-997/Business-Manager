@@ -4,6 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/empty_cart"
+        android:id="@+id/checkout_empty"
+        android:scaleType="centerCrop"/>
+
     <LinearLayout
         android:id="@+id/lay1"
         android:layout_width="match_parent"
@@ -24,7 +31,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="500000"
+            android:text="0.0"
             android:textSize="25sp"
             android:padding="2dp"
             android:textAlignment="textEnd"
