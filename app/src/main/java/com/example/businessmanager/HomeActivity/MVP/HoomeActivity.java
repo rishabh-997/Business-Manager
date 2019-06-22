@@ -14,6 +14,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.businessmanager.ClientRegistration.MVP.ClientRegActivity;
@@ -37,10 +41,20 @@ public class HoomeActivity extends AppCompatActivity implements HomeActContract.
 
     HomeActContract.presenter presenter;
     Home_Adapter adapter;
-    List<ClientModel> list;
+    List<ClientModel> list=new ArrayList<>();;
 
     @BindView(R.id.home_recycler_view)
     RecyclerView recyclerView;
+
+    @BindView(R.id.home_search)
+    EditText search;
+
+    @BindView(R.id.home_search_button)
+    ImageView button;
+
+    @BindView(R.id.home_bar)
+    ProgressBar progressBar;
+
 
 
     @Override
@@ -90,20 +104,31 @@ public class HoomeActivity extends AppCompatActivity implements HomeActContract.
                 return true;
             }
         });
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                search();
+            }
+        });
     }
 
     @Override
     public void showToast(String message) {
+        progressBar.setVisibility(View.GONE);
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void showData(ResponseClient body) {
-        list=new ArrayList<>();
+    public void showData(ResponseClient body)
+    {
+        progressBar.setVisibility(View.GONE);
+        list.clear();
         list=body.getList();
         Collections.sort(list, ClientModel.NameCompare);
         adapter=new Home_Adapter(list,this);
         recyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 
     public boolean onOptionsItemSelected(MenuItem item)
@@ -115,5 +140,21 @@ public class HoomeActivity extends AppCompatActivity implements HomeActContract.
     public void onBackPressed() {
         finish();
         System.exit(0);
+    }
+
+
+    private void search()
+    {
+        progressBar.setVisibility(View.VISIBLE);
+        if(search.getText().toString().isEmpty())
+        {
+            progressBar.setVisibility(View.GONE);
+            search.setError("Enter Query");
+            search.requestFocus();
+        }
+        else
+        {
+            presenter.search(search.getText().toString());
+        }
     }
 }

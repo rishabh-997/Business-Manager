@@ -21,6 +21,8 @@ public class ProductListContract
         void showSubCategories(SubCat_response body);
 
         void showSpecs(SpecResponse body);
+
+        void eraseSheet();
     }
     interface presenter
     {

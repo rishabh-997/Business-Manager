@@ -21,6 +21,13 @@ import retrofit2.http.POST;
 
 public interface ClientAPI
 {
+    @POST("Search/")
+    @FormUrlEncoded
+    Call<ResponseClient> search(
+            @Field("RegType") String regtype,
+            @Field("query") String query
+    );
+
     @POST("admin_login/")
     @FormUrlEncoded
     Call<LogInResponse> login(
@@ -135,7 +142,8 @@ public interface ClientAPI
             @Field("MobileNumber") String mobile ,
             @Field("Terms") String terms,
             @Field("Comment") String comment,
-            @Field("Company") String company
+            @Field("Company") String company,
+            @Field("access_token") String token
     );
 
     @POST("GetOrderHistory/")

@@ -1,118 +1,356 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@android:style/Widget.Holo.ProgressBar.Horizontal"
+        android:indeterminate="true"
+        android:visibility="gone"
+        android:layout_alignParentTop="true"
+        android:id="@+id/checkout_bar"/>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/empty_cart"
-        android:id="@+id/checkout_empty"
+        android:id="@+id/checkout__image_empty"
+        android:scaleY="0.97"
+        android:visibility="gone"
         android:scaleType="centerCrop"/>
 
-    <LinearLayout
-        android:id="@+id/lay1"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:background="#94593397">
-        <TextView
-            android:id="@+id/checkout_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.5"
-            android:text="Client Name"
-            android:textSize="24sp"
-            android:padding="2dp"
-            android:textColor="@android:color/white"/>
-        <TextView
-            android:id="@+id/checkout_total"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="0.0"
-            android:textSize="25sp"
-            android:padding="2dp"
-            android:textAlignment="textEnd"
-            android:textColor="@android:color/white"/>
-    </LinearLayout>
+        android:layout_height="match_parent"
+        android:src="@mipmap/placed"
+        android:id="@+id/checkout_image_placed"
+        android:visibility="gone"/>
 
-    <LinearLayout
+    <ScrollView
+        android:layout_below="@id/checkout_bar"
+        android:layout_marginBottom="40dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <LinearLayout
+            android:id="@+id/checkout_linearlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="Order Details"
+                android:paddingLeft="12dp"
+                android:textSize="17sp"
+                android:textColor="@android:color/black"
+                android:background="#CCCCCC"
+                android:gravity="center_vertical"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Company Name"/>
+                    <TextView
+                        android:layout_margin="3dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/checkout_companyname"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Number Of Products"/>
+                    <TextView
+                        android:layout_margin="3dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/checkout_quantity"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Total Price"/>
+                    <TextView
+                        android:layout_margin="3dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/checkout_price"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="CGST"/>
+                    <TextView
+                        android:layout_margin="3dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/checkout_cgst"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="SGST"/>
+                    <TextView
+                        android:layout_margin="3dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/checkout_sgst"/>
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="25dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="30dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Amount"
+                        android:textSize="17sp"
+                        android:layout_alignParentStart="true"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        />
+                    <TextView
+                        android:layout_alignParentEnd="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="17sp"
+                        android:id="@+id/checkout_pricetaxable"/>
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="20dp"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="Payment Terms"
+                android:paddingLeft="12dp"
+                android:textSize="17sp"
+                android:textColor="@android:color/black"
+                android:background="#CCCCCC"
+                android:gravity="center_vertical"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="6dp"
+                android:background="@drawable/spinnerbg_for_checkout"
+                android:id="@+id/checkout_spinner"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="Provide Additional Info."
+                android:paddingLeft="12dp"
+                android:textSize="17sp"
+                android:textColor="@android:color/black"
+                android:background="#CCCCCC"
+                android:gravity="center_vertical"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:textSize="18sp"
+                android:hint="Add Your comment Here"
+                android:background="@android:color/white"
+                android:id="@+id/checkout_comment"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="Client Details"
+                android:paddingLeft="12dp"
+                android:textSize="17sp"
+                android:textColor="@android:color/black"
+                android:background="#CCCCCC"
+                android:gravity="center_vertical"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Client Name"/>
+                    <TextView
+                        android:layout_margin="3dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/checkout_clientname"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Client Bill To"/>
+                    <TextView
+                        android:layout_margin="3dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/checkout_clientbillto"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Client Ship To"/>
+                    <TextView
+                        android:layout_margin="3dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/checkout_shipto"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Client Contact"/>
+                    <TextView
+                        android:layout_margin="3dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/checkout_contact"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/lay5"
-        android:layout_below="@id/lay1">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="30dp"
-            android:background="#f2f2f2"
-            android:text="Payment Terms"
-            android:layout_margin="6dp"
-            android:textColor="@android:color/black"
-            android:textSize="15sp"
-            android:padding="2dp"/>
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="0dp"
-            android:layout_weight="1.5"
-            android:layout_height="30dp"
-            android:layout_margin="6dp"
-            android:background="#f2f2f2">
-
-        </Spinner>
-    </LinearLayout>
-
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/lay5"
-        android:layout_marginTop="6dp"
-        android:layout_marginBottom="70dp"
-        android:id="@+id/checkout_recyclerview">
-
-    </android.support.v7.widget.RecyclerView>
-
-    <EditText
-        android:background="#f2f2f2"
-        android:id="@+id/commentbox"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_above="@+id/lay6"
-        android:padding="2dp"
-        android:layout_margin="2dp"
+        android:text="Place Order"
+        android:textSize="18sp"
+        android:padding="6dp"
         android:textAlignment="center"
-        android:textSize="20sp"
-        android:hint="Enter Your comment Here"/>
-
-    <LinearLayout
-        android:id="@+id/lay6"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:textScaleX="1.2"
         android:layout_alignParentBottom="true"
-        android:padding="2dp"
-        android:background="@android:color/holo_green_dark">
-        <TextView
-            android:id="@+id/checkout_edit"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Edit Order"
-            android:textSize="24sp"
-            android:padding="2dp"
-            android:textColor="@android:color/white"/>
-        <TextView
-            android:id="@+id/checkout_place"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Place Order"
-            android:textSize="25sp"
-            android:padding="2dp"
-            android:textAlignment="textEnd"
-            android:textColor="@android:color/white"/>
-    </LinearLayout>
+        android:textColor="@android:color/white"
+        android:background="@color/pink"
+        android:id="@+id/checkout_place"/>
 
 </RelativeLayout>

@@ -1,9 +1,11 @@
 package com.example.businessmanager.Cart.MVP;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.businessmanager.Cart.Model.CartList;
@@ -18,6 +21,8 @@ import com.example.businessmanager.Cart.Model.CartResponse;
 import com.example.businessmanager.CheckOut.MVP.CheckOutActivity;
 import com.example.businessmanager.ClientDashboard.MVP.ClientDashActivity;
 import com.example.businessmanager.HomeActivity.model.ClientModel;
+import com.example.businessmanager.Model_common.UnitList;
+import com.example.businessmanager.Model_common.UnitResponse;
 import com.example.businessmanager.R;
 import com.example.businessmanager.Utilities.SharedPref;
 
@@ -33,6 +38,8 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
     CartContract.presenter presenter;
 
     List<CartList> list=new ArrayList<>();
+    List<UnitList> unitList=new ArrayList<>();
+    String[] unitlistfinal;
     CartAdapter adapter;
 
     Animation open,close,forward,backward;
@@ -49,6 +56,8 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
     FloatingActionButton fab_deleteall;
     @BindView(R.id.cart_empty)
     ImageView cartempty;
+    @BindView(R.id.cart_bar)
+    ProgressBar progressBar;
 
 
     @Override
@@ -58,6 +67,8 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
         presenter=new CartPresenter(this);
         ButterKnife.bind(this);
         sharedPref=new SharedPref(this);
+
+        presenter.getUnit();
 
         open= AnimationUtils.loadAnimation(this,R.anim.fab_open);
         close= AnimationUtils.loadAnimation(this,R.anim.fab_close);
@@ -76,6 +87,7 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
         fab_place.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 Intent intent=new Intent(CartActivity.this, CheckOutActivity.class);
                 intent.putExtra("client_details", clientModel);
                 startActivity(intent);
@@ -83,8 +95,9 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
         });
         fab_deleteall.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                presenter.deleteAll(clientModel.getMobile(),sharedPref.getCompany());
+            public void onClick(View v)
+            {
+                deleteall();
             }
         });
 
@@ -99,24 +112,58 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
         });
     }
 
+    private void deleteall()
+    {
+        final AlertDialog alert=new AlertDialog.Builder(this).create();
+        alert.setTitle("Are You Sure ?");
+        alert.setMessage("All Order will be Deleted");
+        alert.setCancelable(false);
+
+        alert.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                progressBar.setVisibility(View.VISIBLE);
+                presenter.deleteAll(clientModel.getMobile(),sharedPref.getCompany());
+                alert.cancel();
+            }
+        });
+        alert.setButton(DialogInterface.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                alert.cancel();
+            }
+        });
+        alert.show();
+    }
+
     @Override
     public void showToast(String message) {
+        progressBar.setVisibility(View.GONE);
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void showCart(CartResponse body)
     {
+        progressBar.setVisibility(View.GONE);
         list=body.getList();
         if(list.size()==0)
         {
             cartempty.setVisibility(View.VISIBLE);
+            list.clear();
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            adapter = new CartAdapter(list, this, this);
+            adapter.setSpinner(unitlistfinal);
+            recyclerView.setAdapter(adapter);
         }
         else {
             cartempty.setVisibility(View.GONE);
             recyclerView.setHasFixedSize(true);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             adapter = new CartAdapter(list, this, this);
+            adapter.setSpinner(unitlistfinal);
             recyclerView.setAdapter(adapter);
         }
     }
@@ -129,18 +176,75 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
     }
 
     @Override
-    public void onUpdateClick(int position,String cost,String size,String unit) {
-        String mobile=clientModel.getMobile();
-        String pid=list.get(position).getId();
-        presenter.updateCart(mobile,pid,size,unit,cost);
+    public void setList(UnitResponse body)
+    {
+        unitList=body.getPUnitList();
+        unitlistfinal=new String[unitList.size()];
+        for(int i=0;i<unitList.size();i++)
+            unitlistfinal[i]=unitList.get(i).getUnit();
     }
 
     @Override
-    public void onDeleteClick(int position) {
+    public void delete(int pos,String string)
+    {
+        presenter.getCart(clientModel.getMobile(),sharedPref.getCompany());
+    }
 
-        String mobile=clientModel.getMobile();
-        String pid=list.get(position).getId();
-        presenter.deleteCart(mobile,pid);
+    @Override
+    public void onUpdateClick(final int position, final String cost, final String size, final String unit)
+    {
+        final AlertDialog alert=new AlertDialog.Builder(this).create();
+        alert.setTitle("Are You Sure ?");
+        alert.setMessage("Order will be Updated");
+        alert.setCancelable(false);
+
+        alert.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                progressBar.setVisibility(View.VISIBLE);
+
+                String mobile=clientModel.getMobile();
+                String pid=list.get(position).getId();
+                presenter.updateCart(mobile,pid,size,unit,cost);
+                alert.cancel();
+            }
+        });
+        alert.setButton(DialogInterface.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                alert.cancel();
+            }
+        });
+        alert.show();
+    }
+
+    @Override
+    public void onDeleteClick(final int position) {
+
+        final AlertDialog alert=new AlertDialog.Builder(this).create();
+        alert.setTitle("Are You Sure ?");
+        alert.setMessage("Product will be Deleted");
+        alert.setCancelable(false);
+
+        alert.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                progressBar.setVisibility(View.VISIBLE);
+                String mobile=clientModel.getMobile();
+                String pid=list.get(position).getId();
+                presenter.deleteCart(mobile,pid,position);
+                alert.cancel();
+            }
+        });
+        alert.setButton(DialogInterface.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                alert.cancel();
+            }
+        });
+        alert.show();
     }
 
     void animateFab()

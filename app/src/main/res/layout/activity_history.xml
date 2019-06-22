@@ -5,17 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ProgressBar
+        android:id="@+id/history_bar"
+        style="@android:style/Widget.Holo.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:indeterminate="true"/>
+
     <TextView
         android:id="@+id/history_name"
         android:layout_marginBottom="6dp"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:text="Rishabh Agarwal"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:paddingTop="5dp"
+        android:visibility="gone"
+        android:gravity="center"
+        android:paddingBottom="2dp"
+        android:textSize="20sp"
         android:textColor="@android:color/black"
-        android:background="@android:color/darker_gray"/>
+        android:background="@color/lightyellow"/>
+
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

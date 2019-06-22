@@ -79,12 +79,11 @@
 
     <ImageView
         android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_margin="1dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="1dp"
         android:layout_alignParentEnd="true"
         android:elevation="12dp"
         android:src="@drawable/ic_info_outline_black_24dp"
-        android:background="@drawable/box"
         android:id="@+id/prodlist_specs"/>
 
 </RelativeLayout>

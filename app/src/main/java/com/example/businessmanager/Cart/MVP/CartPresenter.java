@@ -2,6 +2,7 @@ package com.example.businessmanager.Cart.MVP;
 
 import com.example.businessmanager.Cart.Model.CartResponse;
 import com.example.businessmanager.Cart.Model.CartResponse_CUD;
+import com.example.businessmanager.Model_common.UnitResponse;
 import com.example.businessmanager.Utilities.Network.ClientAPI;
 import com.example.businessmanager.Utilities.Network.Utils;
 
@@ -34,12 +35,27 @@ public class CartPresenter implements CartContract.presenter
     }
 
     @Override
-    public void deleteCart(String mobile, String pid)
+    public void deleteCart(String mobile, String pid, final int pos)
     {
         clientAPI.deleteProduct(mobile,pid).enqueue(new Callback<CartResponse_CUD>() {
             @Override
-            public void onResponse(Call<CartResponse_CUD> call, Response<CartResponse_CUD> response) {
-                mvpview.showToast(response.message());
+            public void onResponse(Call<CartResponse_CUD> call, Response<CartResponse_CUD> response)
+            {
+                if(response.isSuccessful())
+                {
+                    if(response.body().getMessage().equals("Successful"))
+                    {
+                        mvpview.delete(pos,response.message());
+                    }
+                    else
+                    {
+                        mvpview.showToast(response.body().getMessage());
+                    }
+                }
+                else
+                {
+                    mvpview.showToast(response.message());
+                }
             }
 
             @Override
@@ -93,6 +109,20 @@ public class CartPresenter implements CartContract.presenter
             @Override
             public void onFailure(Call<CartResponse> call, Throwable t) {
 
+            }
+        });
+    }
+
+    @Override
+    public void getUnit() {
+        clientAPI.getUnits("").enqueue(new Callback<UnitResponse>() {
+            @Override
+            public void onResponse(Call<UnitResponse> call, Response<UnitResponse> response) {
+                mvpview.setList(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<UnitResponse> call, Throwable t) {
             }
         });
     }

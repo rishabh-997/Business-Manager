@@ -39,11 +39,11 @@ public class CheckOutAdapter extends RecyclerView.Adapter<CheckOutAdapter.ViewHo
         viewHolder.name.setText(cartList.getName());
         viewHolder.unit.setText("Unit : "+cartList.getUnit());
         viewHolder.size.setText("Quantity"+cartList.getSize());
-        viewHolder.costper.setText("Cost/- "+cartList.getCost());
+        viewHolder.costper.setText("Cost "+cartList.getCost()+"/-");
 
-        viewHolder.cost.setText("Cost : "+cartList.getTotal_cost());
-        viewHolder.gst.setText("GST Tax : "+cartList.getSgst());
-        viewHolder.total.setText("Total : "+cartList.getTotal_cost_tax());
+        viewHolder.cost.setText(cartList.getTotal_cost());
+        viewHolder.gst.setText(cartList.getSgst());
+        viewHolder.total.setText(cartList.getTotal_cost_tax());
     }
 
     @Override

@@ -6,13 +6,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.businessmanager.Cart.Model.CartList;
+import com.example.businessmanager.ProductList.MVP.ProductListActivity;
 import com.example.businessmanager.ProductList.MVP.ProductListAdapter;
 import com.example.businessmanager.R;
 import com.squareup.picasso.Picasso;
@@ -28,6 +32,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>
     List<CartList> list;
     Context context;
     private CartAdapter.onNoteClickListener onNoteClickListener;
+    String[] unitlistfinal;
 
     public CartAdapter(List<CartList> list, Context context,onNoteClickListener onNoteClickListener) {
         this.list = list;
@@ -50,8 +55,23 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>
         viewHolder.name.setText(cartList.getName());
         viewHolder.cost.setText(cartList.getCost());
         viewHolder.size.setText(cartList.getSize());
-        viewHolder.unit.setText(cartList.getUnit());
         Picasso.get().load(cartList.getImage_url()).into(viewHolder.image);
+
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, unitlistfinal);
+        viewHolder.unit.setAdapter(adapter);
+        int position=adapter.getPosition(cartList.getUnit());
+        viewHolder.unit.setSelection(position);
+        viewHolder.unit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
     }
 
@@ -60,10 +80,16 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>
         return list.size();
     }
 
+    public void setSpinner(String[] unitlistfinal)
+    {
+        this.unitlistfinal=unitlistfinal;
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         TextView name;
-        EditText cost,size,unit;
+        EditText cost,size;
+        Spinner unit;
         ImageView image;
         TextView delete,update;
         onNoteClickListener listener;
@@ -82,7 +108,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>
             update.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    listener.onUpdateClick(getAdapterPosition(),cost.getText().toString(),size.getText().toString(),unit.getText().toString());
+                    listener.onUpdateClick(getAdapterPosition(),cost.getText().toString(),size.getText().toString(),unit.getSelectedItem().toString());
                 }
             });
             delete.setOnClickListener(new View.OnClickListener() {

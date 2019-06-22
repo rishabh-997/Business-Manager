@@ -16,6 +16,6 @@ public class CheckOutContract
 
         void getCart(String mobile,String company);
 
-        void placeorder(String client, String name, String mobile, String payment_terms, String comment,String company);
+        void placeorder(String client, String name, String mobile, String payment_terms, String comment,String company,String token);
     }
 }

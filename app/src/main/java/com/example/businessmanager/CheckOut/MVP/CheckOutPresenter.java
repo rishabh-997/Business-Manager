@@ -4,6 +4,7 @@ import com.example.businessmanager.Cart.Model.CartResponse;
 import com.example.businessmanager.CheckOut.Model.PlaceOrderResponse;
 import com.example.businessmanager.Utilities.Network.ClientAPI;
 import com.example.businessmanager.Utilities.Network.Utils;
+import com.example.businessmanager.Utilities.SharedPref;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -25,19 +26,33 @@ public class CheckOutPresenter implements CheckOutContract.presenter
             @Override
             public void onResponse(Call<CartResponse> call, Response<CartResponse> response) {
                 if(response.isSuccessful())
-                    mvpview.showCart(response.body());
+                {
+                    if(response.body().getMessage().equals("successful"))
+                    {
+                        mvpview.showCart(response.body());
+                    }
+                    else
+                    {
+                        mvpview.showToast(response.body().getMessage());
+                    }
+                }
+                else
+                {
+                    mvpview.showToast(response.message());
+                }
+
             }
 
             @Override
             public void onFailure(Call<CartResponse> call, Throwable t) {
-
+                mvpview.showToast(t.getMessage());
             }
         });
     }
 
     @Override
-    public void placeorder(String client, String name, String mobile, String payment_terms,String comment,String company) {
-        clientAPI.placeorder(client,name,mobile,payment_terms,comment,company).enqueue(new Callback<PlaceOrderResponse>() {
+    public void placeorder(String client, String name, String mobile, String payment_terms,String comment,String company,String token) {
+        clientAPI.placeorder(client,name,mobile,payment_terms,comment,company,token).enqueue(new Callback<PlaceOrderResponse>() {
             @Override
             public void onResponse(Call<PlaceOrderResponse> call, Response<PlaceOrderResponse> response) {
                 if(response.isSuccessful())

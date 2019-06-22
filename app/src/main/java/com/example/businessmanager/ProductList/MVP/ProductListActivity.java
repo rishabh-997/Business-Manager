@@ -164,7 +164,7 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
         toolbarcart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(ProductListActivity.this, CheckOutActivity.class);
+                Intent intent=new Intent(ProductListActivity.this, CartActivity.class);
                 intent.putExtra("client_details", clientModel);
                 startActivity(intent);
             }
@@ -269,6 +269,14 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
         builder.setTitle("Specifications");
         builder.setMessage(message);
         builder.show();
+    }
+
+    @Override
+    public void eraseSheet()
+    {
+        cart_price.setText("");
+        cart_quantity.setText("");
+
     }
 
     private void setCategory(String Company)

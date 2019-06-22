@@ -77,14 +77,16 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="Enter Price of Item"
+                    android:textColor="@android:color/black"
                     android:textSize="17sp"/>
                 <EditText
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:hint="Price"
+                    android:hint="Enter Price"
                     android:inputType="number"
                     android:id="@+id/cart_price"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="17sp"/>
 
 
@@ -102,14 +104,15 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
                     android:text="Enter Size of Item"
                     android:textSize="17sp"/>
                 <Spinner
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="wrap_content"
+                    android:layout_height="35dp"
                     android:text="Size"
-                    android:background="#f2f2f2"
+                    android:background="@drawable/spinnerbg"
                     android:id="@+id/cart_size"
                     android:textSize="17sp"/>
 
@@ -124,6 +127,14 @@
                 android:layout_below="@id/lay2">
 
                 <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:text="Enter Quantity of Item"
+                    android:textSize="17sp"/>
+
+                <TextView
                     android:id="@+id/cart_decrease_quantity"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -131,6 +142,7 @@
                     android:background="#f2f2f2"
                     android:gravity="center_horizontal"
                     android:text="-"
+                    android:visibility="gone"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -141,28 +153,28 @@
 
                 <EditText
                     android:id="@+id/cart_item_quantity"
-                    android:layout_width="100dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="30dp"
-                    android:layout_centerInParent="true"
                     android:background="#fbfbfb"
-                    android:gravity="center"
                     android:minWidth="15dp"
+                    android:textAlignment="textStart"
                     android:inputType="number"
                     android:paddingLeft="8dp"
                     android:paddingRight="8dp"
                     android:hint="Enter unit"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toStartOf="@+id/cart_increase_quantity"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/cart_decrease_quantity"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:text="1" />
+                    app:layout_constraintTop_toTopOf="parent"/>
 
                 <TextView
                     android:id="@+id/cart_increase_quantity"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:visibility="gone"
                     android:layout_alignParentEnd="true"
                     android:background="#f2f2f2"
                     android:gravity="center_horizontal"

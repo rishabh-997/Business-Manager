@@ -119,6 +119,7 @@ public class ProductListPresenter implements ProductListContract.presenter
             @Override
             public void onResponse(Call<CartResponse_CUD> call, Response<CartResponse_CUD> response) {
                 mvpview.showtaost(response.message());
+                mvpview.eraseSheet();
             }
 
             @Override

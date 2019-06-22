@@ -1,18 +1,23 @@
 package com.example.businessmanager.CheckOut.MVP;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +26,7 @@ import com.example.businessmanager.Cart.MVP.CartActivity;
 import com.example.businessmanager.Cart.Model.CartList;
 import com.example.businessmanager.Cart.Model.CartResponse;
 import com.example.businessmanager.ClientDashboard.MVP.ClientDashActivity;
+import com.example.businessmanager.History.MVP.HistoryActivity;
 import com.example.businessmanager.HomeActivity.model.ClientModel;
 import com.example.businessmanager.R;
 import com.example.businessmanager.Utilities.SharedPref;
@@ -29,6 +35,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindInt;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -37,27 +44,42 @@ public class CheckOutActivity extends AppCompatActivity implements CheckOutContr
     CheckOutContract.presenter presenter;
     ClientModel clientModel;
     List<CartList> list=new ArrayList<>();
-    CheckOutAdapter checkOutAdapter;
     SharedPref sharedPref;
 
-    @BindView(R.id.checkout_recyclerview)
-    RecyclerView recyclerView;
-    @BindView(R.id.checkout_name)
-    TextView name;
-    @BindView(R.id.checkout_total)
-    TextView total;
-    @BindView(R.id.spinner)
-    Spinner spinner;
-    @BindView(R.id.checkout_edit)
-    TextView edit;
+    @BindView(R.id.checkout_companyname)
+    TextView company;
+    @BindView(R.id.checkout_quantity)
+    TextView quantity;
+    @BindView(R.id.checkout_price)
+    TextView checkout_price;
+    @BindView(R.id.checkout_cgst)
+    TextView checkout_cgst;
+    @BindView(R.id.checkout_sgst)
+    TextView checkout_sfst;
+    @BindView(R.id.checkout_pricetaxable)
+    TextView checkout_pricetotal;
+    @BindView(R.id.checkout_clientname)
+    TextView clientname;
+    @BindView(R.id.checkout_clientbillto)
+    TextView billto;
+    @BindView(R.id.checkout_shipto)
+    TextView shipto;
+    @BindView(R.id.checkout_contact)
+    TextView contact;
+    @BindView(R.id.checkout_spinner)
+    Spinner spinners;
+    @BindView(R.id.checkout_comment)
+    EditText comments;
     @BindView(R.id.checkout_place)
-    TextView place;
-    @BindView(R.id.commentbox)
-    EditText comment;
-    @BindView(R.id.checkout_empty)
-    ImageView cartempty;
-    @BindView(R.id.lay5)
+    TextView placeorder;
+    @BindView(R.id.checkout__image_empty)
+    ImageView imageempty;
+    @BindView(R.id.checkout_image_placed)
+    ImageView imageplaced;
+    @BindView(R.id.checkout_linearlayout)
     LinearLayout linearLayout;
+    @BindView(R.id.checkout_bar)
+    ProgressBar progressBar;
 
     String payment_terms="Advance";
 
@@ -70,18 +92,16 @@ public class CheckOutActivity extends AppCompatActivity implements CheckOutContr
 
         presenter=new CheckOutPresenter(this);
         clientModel=(ClientModel)getIntent().getExtras().getSerializable("client_details");
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setHasFixedSize(true);
 
         presenter.getCart(clientModel.getMobile(),sharedPref.getCompany());
 
         final String[] spinnerValueHoldValue = {"Advance", "15 Days", "30 Days", "60 Days","90 Days"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(CheckOutActivity.this, android.R.layout.simple_list_item_1, spinnerValueHoldValue);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinners.setAdapter(adapter);
+        spinners.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                payment_terms=spinner.getSelectedItem().toString();
+                payment_terms=spinners.getSelectedItem().toString();
             }
 
             @Override
@@ -90,7 +110,7 @@ public class CheckOutActivity extends AppCompatActivity implements CheckOutContr
             }
         });
 
-        cartempty.setOnClickListener(new View.OnClickListener() {
+        imageempty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -100,7 +120,17 @@ public class CheckOutActivity extends AppCompatActivity implements CheckOutContr
             }
         });
 
-        place.setOnClickListener(new View.OnClickListener() {
+        imageplaced.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                Intent intent=new Intent(CheckOutActivity.this, HistoryActivity.class);
+                intent.putExtra("client_details", clientModel);
+                startActivity(intent);
+            }
+        });
+
+        placeorder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(list.size()==0)
@@ -109,21 +139,39 @@ public class CheckOutActivity extends AppCompatActivity implements CheckOutContr
                     placeorder();
             }
         });
-        name.setText(clientModel.getName());
-        edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-                Intent intent=new Intent(CheckOutActivity.this, CartActivity.class);
-                intent.putExtra("client_details", clientModel);
-                startActivity(intent);
-            }
-        });
+
+
+        company.setText(sharedPref.getCompany());
+        clientname.setText(clientModel.getName());
+        billto.setText(clientModel.getShipTo());
+        shipto.setText(clientModel.getShipTo());
+        contact.setText(clientModel.getMobile());
     }
 
     private void placeorder()
     {
-        presenter.placeorder("Client",clientModel.getName(),clientModel.getMobile(),payment_terms,comment.getText().toString(),sharedPref.getCompany());
+        final AlertDialog alertDialog=new AlertDialog.Builder(this).create();
+        alertDialog.setTitle("Place Order");
+        alertDialog.setMessage("\nHave you cross checked the details ?");
+        alertDialog.setCancelable(false);
+
+        alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                progressBar.setVisibility(View.VISIBLE);
+                presenter.placeorder("Client",clientModel.getName(),clientModel.getMobile(),payment_terms,comments.getText().toString(),sharedPref.getCompany(),sharedPref.getAccessToken());
+                alertDialog.cancel();
+            }
+        });
+        alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                alertDialog.cancel();
+            }
+        });
+        alertDialog.show();
+
     }
 
     @Override
@@ -138,40 +186,49 @@ public class CheckOutActivity extends AppCompatActivity implements CheckOutContr
         list=body.getList();
         if(list.size()==0)
         {
-            comment.setVisibility(View.GONE);
-            cartempty.setVisibility(View.VISIBLE);
+            placeorder.setVisibility(View.GONE);
             linearLayout.setVisibility(View.GONE);
+            imageplaced.setVisibility(View.GONE);
+            imageempty.setVisibility(View.VISIBLE);
         }
         else {
-            comment.setVisibility(View.VISIBLE);
+            imageempty.setVisibility(View.GONE);
+            imageplaced.setVisibility(View.GONE);
             linearLayout.setVisibility(View.VISIBLE);
-            cartempty.setVisibility(View.GONE);
+            placeorder.setVisibility(View.VISIBLE);
             showCost();
-            checkOutAdapter = new CheckOutAdapter(this, list);
-            recyclerView.setAdapter(checkOutAdapter);
         }
     }
 
     @Override
-    public void close() {
-        total.setText("0.0");
-        list.clear();
-        comment.setVisibility(View.GONE);
-        cartempty.setVisibility(View.VISIBLE);
+    public void close()
+    {
+        placeorder.setVisibility(View.GONE);
+        progressBar.setVisibility(View.GONE);
         linearLayout.setVisibility(View.GONE);
-        checkOutAdapter.notifyDataSetChanged();
+        imageplaced.setVisibility(View.VISIBLE);
+        imageempty.setVisibility(View.GONE);
     }
 
     @SuppressLint("SetTextI18n")
     private void showCost()
     {
-        Double cost=0.0;
+        Double cost=0.0,cgst=0.0,sgst=0.0,total=0.0;
+        int quan=list.size();
+
         for(int i=0;i<list.size();i++)
         {
-            Double costitem=Double.parseDouble(list.get(i).getTotal_cost_tax());
-            cost+=costitem;
+            cost=cost+Double.parseDouble(list.get(i).getTotal_cost());
+            cgst=cgst+Double.parseDouble(list.get(i).getCgst());
+            sgst=sgst+Double.parseDouble(list.get(i).getSgst());
+            total=total+Double.parseDouble(list.get(i).getTotal_cost_tax());
         }
-        total.setText(""+cost);
+
+        quantity.setText(quan+"");
+        checkout_price.setText(cost+"");
+        checkout_cgst.setText(cgst+"");
+        checkout_sfst.setText(sgst+"");
+        checkout_pricetotal.setText(total+"");
     }
 
 }

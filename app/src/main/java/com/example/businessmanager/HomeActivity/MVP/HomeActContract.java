@@ -15,6 +15,7 @@ public class HomeActContract
     }
     interface presenter
     {
+        void search(String query);
 
         void getList(String s);
     }

@@ -6,6 +6,8 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +37,8 @@ public class HistoryActivity extends AppCompatActivity implements HistoryContrac
     TextView name;
     @BindView(R.id.history_recycler)
     RecyclerView recyclerView;
+    @BindView(R.id.history_bar)
+    ProgressBar progressBar;
 
     List<HistoryList> list=new ArrayList<>();
     HistoryAdapter adapter;
@@ -53,12 +57,16 @@ public class HistoryActivity extends AppCompatActivity implements HistoryContrac
     }
 
     @Override
-    public void showToast(String message) {
+    public void showToast(String message)
+    {
+        progressBar.setVisibility(View.GONE);
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void showList(HistoryResponse body) {
+    public void showList(HistoryResponse body)
+    {
+        progressBar.setVisibility(View.GONE);
         list=body.getHistoryList();
         Collections.reverse(list);
         adapter=new HistoryAdapter(this,list,this);
@@ -68,7 +76,9 @@ public class HistoryActivity extends AppCompatActivity implements HistoryContrac
     }
 
     @Override
-    public void showDetails(HistoryDetailResponse body,String id,String comment) {
+    public void showDetails(HistoryDetailResponse body,String id,String comment)
+    {
+        progressBar.setVisibility(View.GONE);
         List<HistoryDetailList> detailList=body.getHistoryDetailList();
         if(comment.trim().isEmpty())
             comment="No Comment Found";
@@ -95,6 +105,7 @@ public class HistoryActivity extends AppCompatActivity implements HistoryContrac
     public void onNoteClick(int position) {
         String orderid=list.get(position).getOrderId();
         String comment=list.get(position).getComment();
+        progressBar.setVisibility(View.VISIBLE);
         presenter.getDetails(orderid,comment);
     }
 }

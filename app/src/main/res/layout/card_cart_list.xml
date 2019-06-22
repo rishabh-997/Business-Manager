@@ -17,7 +17,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:layout_width="100dp"
+            android:layout_width="120dp"
             android:layout_height="133dp"
             android:id="@+id/cart_final_image"
             android:src="@drawable/ic_launcher_background"
@@ -58,6 +58,7 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:hint="100"
+                android:inputType="number"
                 android:id="@+id/cart_final_price"
                 android:textSize="14sp"/>
 
@@ -83,6 +84,7 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:hint="Size"
+                android:inputType="number"
                 android:id="@+id/cart_final_size"
                 android:textSize="14sp"/>
 
@@ -102,12 +104,12 @@
                 android:layout_height="wrap_content"
                 android:text="Unit"
                 android:textSize="17sp"/>
-            <EditText
+            <Spinner
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:hint="Unit"
+                android:layout_height="25dp"
                 android:id="@+id/cart_final_unit"
+                android:background="@drawable/spinnerbg_for_cart"
                 android:textSize="14sp"/>
 
         </LinearLayout>
@@ -126,7 +128,7 @@
             android:textAlignment="center"
             android:textSize="15sp"
             android:textColor="@android:color/white"
-            android:background="@android:color/holo_green_dark"/>
+            android:background="@color/colorPrimary"/>
         <TextView
             android:id="@+id/cart_final_delete"
             android:layout_width="0dp"
@@ -135,8 +137,8 @@
             android:text="DELETE"
             android:textAlignment="center"
             android:textSize="15sp"
-            android:textColor="@android:color/white"
-            android:background="#94593397"/>
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@android:color/white"/>
 
     </LinearLayout>
     </LinearLayout>
