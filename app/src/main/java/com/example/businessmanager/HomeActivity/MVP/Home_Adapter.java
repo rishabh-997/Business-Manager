@@ -34,10 +34,20 @@ public class Home_Adapter extends RecyclerView.Adapter<Home_Adapter.ViewHolder>
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Home_Adapter.ViewHolder viewHolder, int i)
+    public void onBindViewHolder(@NonNull Home_Adapter.ViewHolder viewHolder, final int i)
     {
         ClientModel model=list.get(i);
+        String name=model.getName();
         viewHolder.name.setText(model.getName());
+
+        viewHolder.name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context, ClientDashActivity.class);
+                intent.putExtra("client_details", (Serializable) list.get(i));
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

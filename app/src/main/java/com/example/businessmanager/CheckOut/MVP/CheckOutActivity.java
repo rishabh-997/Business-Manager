@@ -143,7 +143,7 @@ public class CheckOutActivity extends AppCompatActivity implements CheckOutContr
 
         company.setText(sharedPref.getCompany());
         clientname.setText(clientModel.getName());
-        billto.setText(clientModel.getShipTo());
+        billto.setText(clientModel.getBillTo());
         shipto.setText(clientModel.getShipTo());
         contact.setText(clientModel.getMobile());
     }
