@@ -110,8 +110,7 @@ public interface ClientAPI
     @POST("DeleteCart/")
     @FormUrlEncoded
     Call<CartResponse_CUD> deleteProduct(
-            @Field("MobileNumber") String mobile,
-            @Field("PID") String productid
+            @Field("ID") String productid
     );
 
     @POST("DeleteAllCart/")

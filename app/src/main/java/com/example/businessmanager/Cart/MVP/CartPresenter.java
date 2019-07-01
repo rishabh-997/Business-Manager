@@ -35,9 +35,9 @@ public class CartPresenter implements CartContract.presenter
     }
 
     @Override
-    public void deleteCart(String mobile, String pid, final int pos)
+    public void deleteCart(String pid, final int pos)
     {
-        clientAPI.deleteProduct(mobile,pid).enqueue(new Callback<CartResponse_CUD>() {
+        clientAPI.deleteProduct(pid).enqueue(new Callback<CartResponse_CUD>() {
             @Override
             public void onResponse(Call<CartResponse_CUD> call, Response<CartResponse_CUD> response)
             {

@@ -19,7 +19,7 @@ public class CartContract
     interface presenter
     {
         void updateCart(String mobile,String pid,String size,String unit,String cost);
-        void deleteCart(String mobile,String pid,int position);
+        void deleteCart(String pid,int position);
         void deleteAll(String mobile,String company);
         void getCart(String mobile,String company);
 

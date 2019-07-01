@@ -241,7 +241,9 @@
                 android:textSize="18sp"
                 android:hint="Add Your comment Here"
                 android:background="@android:color/white"
-                android:id="@+id/checkout_comment"/>
+                android:id="@+id/checkout_comment"
+                android:focusable="true"
+                android:focusableInTouchMode="true"/>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"

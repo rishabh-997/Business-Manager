@@ -233,8 +233,8 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
 
                 progressBar.setVisibility(View.VISIBLE);
                 String mobile=clientModel.getMobile();
-                String pid=list.get(position).getId();
-                presenter.deleteCart(mobile,pid,position);
+                String pid=list.get(position).getCartid();
+                presenter.deleteCart(pid,position);
                 alert.cancel();
             }
         });

@@ -60,7 +60,9 @@
                 android:hint="100"
                 android:inputType="number"
                 android:id="@+id/cart_final_price"
-                android:textSize="14sp"/>
+                android:textSize="14sp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"/>
 
         </LinearLayout>
 
@@ -86,7 +88,9 @@
                 android:hint="Size"
                 android:inputType="number"
                 android:id="@+id/cart_final_size"
-                android:textSize="14sp"/>
+                android:textSize="14sp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"/>
 
         </LinearLayout>
         <LinearLayout

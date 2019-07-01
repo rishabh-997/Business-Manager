@@ -37,19 +37,12 @@ public class CartList
     @SerializedName("Total_Cost_WTax")
     String total_cost_tax;
 
-    public CartList(String name, String description, String id, String image_url, String sub_category, String size, String unit, String cost, String total_cost, String cgst, String sgst, String total_cost_tax) {
-        this.name = name;
-        this.description = description;
-        this.id = id;
-        this.image_url = image_url;
-        this.sub_category = sub_category;
-        this.size = size;
-        this.unit = unit;
-        this.cost = cost;
-        this.total_cost = total_cost;
-        this.cgst = cgst;
-        this.sgst = sgst;
-        this.total_cost_tax = total_cost_tax;
+    @SerializedName("cart_id")
+    String cartid;
+
+
+    public String getCartid() {
+        return cartid;
     }
 
     public String getTotal_cost() {
