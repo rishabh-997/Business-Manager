@@ -10,6 +10,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+        <ProgressBar
+            android:id="@+id/progress"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:indeterminateTint="@color/colorPrimary"
+            android:indeterminate="true"/>
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

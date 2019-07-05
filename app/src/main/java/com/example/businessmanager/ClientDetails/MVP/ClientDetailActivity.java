@@ -47,7 +47,7 @@ public class ClientDetailActivity extends AppCompatActivity implements ClientDet
     @BindView(R.id.client_details_transport)
     TextView transport;
 
-    String blanl="Not Available";
+    String blank="Not Available";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

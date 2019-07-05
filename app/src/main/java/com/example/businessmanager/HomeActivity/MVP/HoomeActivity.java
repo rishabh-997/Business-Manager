@@ -41,7 +41,7 @@ public class HoomeActivity extends AppCompatActivity implements HomeActContract.
 
     HomeActContract.presenter presenter;
     Home_Adapter adapter;
-    List<ClientModel> list=new ArrayList<>();;
+    List<ClientModel> list=new ArrayList<>();
 
     @BindView(R.id.home_recycler_view)
     RecyclerView recyclerView;
@@ -91,7 +91,6 @@ public class HoomeActivity extends AppCompatActivity implements HomeActContract.
                 }
                 else if(id==R.id.nav_client)
                 {
-                    finish();
                     startActivity(new Intent(HoomeActivity.this, ClientRegActivity.class));
                 }
                 else if(id==R.id.nav_logout)

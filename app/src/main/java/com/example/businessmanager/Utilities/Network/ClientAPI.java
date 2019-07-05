@@ -95,7 +95,9 @@ public interface ClientAPI
             @Field("PID") String productid,
             @Field("Size") String size,
             @Field("Unit") String unit,
-            @Field("Cost") String cost
+            @Field("Cost") String cost,
+            @Field("NVM") String nvm,
+            @Field("Product_Name") String name
     );
 
     @POST("UpdateCart/")

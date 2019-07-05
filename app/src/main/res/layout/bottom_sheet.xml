@@ -95,7 +95,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="15dp"
                 android:orientation="horizontal"
                 android:id="@+id/lay2"
                 android:layout_below="@id/lay1">
@@ -123,7 +123,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:id="@+id/lay3"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="15dp"
                 android:layout_below="@id/lay2">
 
                 <TextView
@@ -188,12 +188,66 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/lay4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:layout_below="@id/lay3">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Enter Product Name"
+                    android:textColor="@android:color/black"
+                    android:textSize="17sp"/>
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Price"
+                    android:inputType="number"
+                    android:id="@+id/cart_product_name"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="17sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lay5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:layout_below="@id/lay4">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Enter NVM"
+                    android:textColor="@android:color/black"
+                    android:textSize="17sp"/>
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter NVM"
+                    android:inputType="number"
+                    android:id="@+id/cart_nvm"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="17sp"/>
+
+            </LinearLayout>
+
             <Button
                 android:id="@+id/cart_submit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/lay3"
-                android:layout_marginTop="80dp"
+                android:layout_below="@id/lay5"
+                android:layout_marginTop="60dp"
                 android:text="Add to Cart" />
         </RelativeLayout>
     </ScrollView>

@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -71,8 +72,16 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
     TextView cart_decrease;
     @BindView(R.id.cart_item_quantity)
     EditText cart_quantity;
+    @BindView(R.id.cart_nvm)
+    EditText nvm;
+    @BindView(R.id.cart_product_name)
+    EditText product_name;
     @BindView(R.id.cart_submit)
     Button cart_submit;
+    @BindView(R.id.lay4)
+    LinearLayout linearLayout1;
+    @BindView(R.id.lay5)
+    LinearLayout linearLayout2;
 
     @BindView(R.id.spinner_company)
     Spinner spinner_company;
@@ -96,7 +105,7 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
     SharedPref sharedPref;
     ProductListAdapter adapter;
     boolean isSheetClosed = true;
-    String cost,size, unit;
+    String cost,size, unit,prod_name="",nvm_name="";
     ClientModel clientModel;
     String CompanyNameFull="",CompanyNameShort="",SubCategory="";
 
@@ -276,6 +285,8 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
     {
         cart_price.setText("");
         cart_quantity.setText("");
+        nvm.setText("");
+        product_name.setText("");
 
     }
 
@@ -310,6 +321,11 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
             }
         });
 
+        if(sharedPref.getCompany().equals("BCHEM"))
+        {
+            linearLayout1.setVisibility(View.INVISIBLE);
+            linearLayout2.setVisibility(View.GONE);
+        }
 
         ProductList productList=list.get(position);
         cart_name.setText(productList.getName());
@@ -375,7 +391,16 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
         size=cart_size.getSelectedItem().toString();
         unit=cart_quantity.getText().toString();
 
-        presenter.addCart(mobile,pid,size,cost,unit);
+        if(!sharedPref.getCompany().equals("BCHEM")) {
+            prod_name = product_name.getText().toString();
+            nvm_name = nvm.getText().toString();
+        }
+        else
+        {
+            prod_name = "";
+            nvm_name = "";
+        }
+        presenter.addCart(mobile,pid,size,cost,unit,nvm_name,prod_name);
     }
 
     @Override

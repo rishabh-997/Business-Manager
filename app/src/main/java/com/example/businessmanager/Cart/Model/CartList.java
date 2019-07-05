@@ -40,6 +40,10 @@ public class CartList
     @SerializedName("cart_id")
     String cartid;
 
+    @SerializedName("Product_Name")
+    String prod_name;
+    @SerializedName("NVM")
+    String nvm;
 
     public String getCartid() {
         return cartid;

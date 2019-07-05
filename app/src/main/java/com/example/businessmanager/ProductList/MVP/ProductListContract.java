@@ -30,7 +30,7 @@ public class ProductListContract
         void getSubCategory(String company);
         void getList(String subcat,String company);
         void getSpecs(String category);
-        void addCart(String mobile,String pid, String size, String cost, String unit);
+        void addCart(String mobile,String pid, String size, String cost, String unit, String nvm, String product_name);
 
         void getUnit();
     }

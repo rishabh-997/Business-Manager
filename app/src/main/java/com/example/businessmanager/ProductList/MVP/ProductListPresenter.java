@@ -114,8 +114,8 @@ public class ProductListPresenter implements ProductListContract.presenter
     }
 
     @Override
-    public void addCart(String mobile, String pid, String size, String cost, String unit) {
-        clientAPI.addProduct(mobile, pid, unit, size,cost).enqueue(new Callback<CartResponse_CUD>() {
+    public void addCart(String mobile, String pid, String size, String cost, String unit, String nvm, String product_name) {
+        clientAPI.addProduct(mobile, pid, unit, size,cost,nvm,product_name).enqueue(new Callback<CartResponse_CUD>() {
             @Override
             public void onResponse(Call<CartResponse_CUD> call, Response<CartResponse_CUD> response) {
                 mvpview.showtaost(response.message());

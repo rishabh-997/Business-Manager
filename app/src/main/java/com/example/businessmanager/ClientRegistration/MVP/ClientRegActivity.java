@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.businessmanager.HomeActivity.MVP.HoomeActivity;
@@ -58,6 +59,8 @@ public class ClientRegActivity extends AppCompatActivity implements ClientRegCon
     CheckBox transport;
     @BindView(R.id.client_submit)
     Button submit;
+    @BindView(R.id.progress)
+    ProgressBar progressBar;
 
     String name="",mobile="",phone="phone",email="email",pan="pam",billto="",shipto="",gst="gst";
     String bankname="name",ifsc="ifsc",isc="isc",bankphone="bankpone", accno="accno",msmenumber="msme",preferred="preffered",regtype="";
@@ -106,9 +109,10 @@ public class ClientRegActivity extends AppCompatActivity implements ClientRegCon
                     Toast.makeText(ClientRegActivity.this, "ShipTo Cannot be empty", Toast.LENGTH_SHORT).show();
                 if(regtype=="")
                     Toast.makeText(ClientRegActivity.this, "Select Type", Toast.LENGTH_SHORT).show();
-                if((!client_name.getText().toString().trim().isEmpty()) && (!client_phone.getText().toString().trim().isEmpty())
+                if((!client_name.getText().toString().trim().isEmpty()) && (!client_mobile.getText().toString().trim().isEmpty())
                     && (!client_billto.getText().toString().trim().isEmpty()) && (!client_shipto.getText().toString().trim().isEmpty()))
                 {
+                    progressBar.setVisibility(View.VISIBLE);
                     presenter.savepost(name,mobile,phone,email,pan,billto,shipto,gst,bankname,ifsc,isc,bankphone,accno,msmenumber,preferred,regtype);
                 }
             }
@@ -117,14 +121,16 @@ public class ClientRegActivity extends AppCompatActivity implements ClientRegCon
 
     @Override
     public void showToast(String message) {
+        progressBar.setVisibility(View.GONE);
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void gotohome()
     {
-        finish();
+        progressBar.setVisibility(View.GONE);
         startActivity(new Intent(this, HoomeActivity.class));
+        finish();
     }
 
     @Override

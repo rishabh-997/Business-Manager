@@ -5,11 +5,11 @@ import com.google.gson.annotations.SerializedName;
 
 public class ResponseBody
 {
-    @SerializedName("Success")
+    @SerializedName("success")
     @Expose
     private boolean success;
 
-    @SerializedName("Message")
+    @SerializedName("message")
     @Expose
     private String message;
 

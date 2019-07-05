@@ -76,7 +76,6 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
         backward= AnimationUtils.loadAnimation(this,R.anim.rotate_back);
 
         clientModel=(ClientModel)getIntent().getExtras().getSerializable("client_details");
-        presenter.getCart(clientModel.getMobile(),sharedPref.getCompany());
 
         fab_main.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,13 +83,12 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
                 animateFab();
             }
         });
+
         fab_place.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
-                Intent intent=new Intent(CartActivity.this, CheckOutActivity.class);
-                intent.putExtra("client_details", clientModel);
-                startActivity(intent);
+
+                place_order();
             }
         });
         fab_deleteall.setOnClickListener(new View.OnClickListener() {
@@ -110,6 +108,33 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
                 startActivity(intent);
             }
         });
+    }
+
+    private void place_order()
+    {
+        final AlertDialog alert=new AlertDialog.Builder(this).create();
+        alert.setTitle("Confirm");
+        alert.setMessage("Have you filled the final price and clicked on update ?");
+        alert.setCancelable(false);
+
+        alert.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                finish();
+                Intent intent=new Intent(CartActivity.this, CheckOutActivity.class);
+                intent.putExtra("client_details", clientModel);
+                startActivity(intent);
+                alert.cancel();
+            }
+        });
+        alert.setButton(DialogInterface.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                alert.cancel();
+            }
+        });
+        alert.show();
     }
 
     private void deleteall()
@@ -182,6 +207,8 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
         unitlistfinal=new String[unitList.size()];
         for(int i=0;i<unitList.size();i++)
             unitlistfinal[i]=unitList.get(i).getUnit();
+
+        presenter.getCart(clientModel.getMobile(),sharedPref.getCompany());
     }
 
     @Override

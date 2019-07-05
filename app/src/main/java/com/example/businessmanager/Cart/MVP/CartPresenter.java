@@ -117,12 +117,22 @@ public class CartPresenter implements CartContract.presenter
     public void getUnit() {
         clientAPI.getUnits("").enqueue(new Callback<UnitResponse>() {
             @Override
-            public void onResponse(Call<UnitResponse> call, Response<UnitResponse> response) {
-                mvpview.setList(response.body());
+            public void onResponse(Call<UnitResponse> call, Response<UnitResponse> response)
+            {
+                if(response.isSuccessful())
+                {
+                    if(response.body().getMessage().equals("successful"))
+                        mvpview.setList(response.body());
+                    else
+                        mvpview.showToast(response.body().getMessage());
+                }
+                else
+                    mvpview.showToast(response.message());
             }
 
             @Override
             public void onFailure(Call<UnitResponse> call, Throwable t) {
+                mvpview.showToast(t.getMessage());
             }
         });
     }

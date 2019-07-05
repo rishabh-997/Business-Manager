@@ -152,7 +152,7 @@ public class CheckOutActivity extends AppCompatActivity implements CheckOutContr
     {
         final AlertDialog alertDialog=new AlertDialog.Builder(this).create();
         alertDialog.setTitle("Place Order");
-        alertDialog.setMessage("\nHave you cross checked the details ?");
+        alertDialog.setMessage("Have you cross checked the details ?");
         alertDialog.setCancelable(false);
 
         alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", new DialogInterface.OnClickListener() {

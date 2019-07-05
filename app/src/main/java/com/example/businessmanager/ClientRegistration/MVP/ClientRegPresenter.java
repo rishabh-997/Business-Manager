@@ -22,9 +22,14 @@ public class ClientRegPresenter implements ClientRegContract.presenter
         clientAPI.createClient(name,mobile,phone,email,pan,billto,shipto,gst,bankname,ifsc,isc,bankphone,accno,msmenumber,preferred,regtype).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                if(response.isSuccessful()) {
-                    mvpview.showToast("Registered Successfully");
-                    mvpview.gotohome();
+                if(response.isSuccessful())
+                {
+                    if(response.body().getMessage().equals("successful")) {
+                        mvpview.showToast("Registered Successfully");
+                        mvpview.gotohome();
+                    }
+                    else
+                        mvpview.showToast(response.body().getMessage());
                 }
                 else
                     mvpview.showToast(response.message());
