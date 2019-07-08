@@ -25,6 +25,8 @@ import android.widget.Toast;
 
 import com.example.businessmanager.Cart.MVP.CartActivity;
 import com.example.businessmanager.CheckOut.MVP.CheckOutActivity;
+import com.example.businessmanager.ClientDashboard.MVP.ClientDashActivity;
+import com.example.businessmanager.History.MVP.HistoryActivity;
 import com.example.businessmanager.HomeActivity.model.ClientModel;
 import com.example.businessmanager.Model_common.UnitList;
 import com.example.businessmanager.Model_common.UnitResponse;
@@ -82,6 +84,8 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
     LinearLayout linearLayout1;
     @BindView(R.id.lay5)
     LinearLayout linearLayout2;
+    @BindView(R.id.cart_history)
+    Button seehistory;
 
     @BindView(R.id.spinner_company)
     Spinner spinner_company;
@@ -174,6 +178,14 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(ProductListActivity.this, CartActivity.class);
+                intent.putExtra("client_details", clientModel);
+                startActivity(intent);
+            }
+        });
+        seehistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(ProductListActivity.this, HistoryActivity.class);
                 intent.putExtra("client_details", clientModel);
                 startActivity(intent);
             }

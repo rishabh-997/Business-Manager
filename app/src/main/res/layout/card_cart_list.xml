@@ -58,7 +58,7 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:hint="100"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:id="@+id/cart_final_price"
                 android:textSize="14sp"
                 android:focusable="true"

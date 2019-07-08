@@ -84,7 +84,7 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:hint="Enter Price"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:id="@+id/cart_price"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="17sp"/>
@@ -243,11 +243,18 @@
             </LinearLayout>
 
             <Button
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/cart_history"
+                android:text="See History"
+                android:layout_marginTop="40dp"
+                android:layout_below="@+id/lay5"/>
+
+            <Button
                 android:id="@+id/cart_submit"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/lay5"
-                android:layout_marginTop="60dp"
+                android:layout_height="40dp"
+                android:layout_below="@id/cart_history"
                 android:text="Add to Cart" />
         </RelativeLayout>
     </ScrollView>

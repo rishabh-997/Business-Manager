@@ -14,12 +14,14 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.businessmanager.Cart.Model.CartList;
 import com.example.businessmanager.Cart.Model.CartResponse;
 import com.example.businessmanager.CheckOut.MVP.CheckOutActivity;
 import com.example.businessmanager.ClientDashboard.MVP.ClientDashActivity;
+import com.example.businessmanager.History.MVP.HistoryActivity;
 import com.example.businessmanager.HomeActivity.model.ClientModel;
 import com.example.businessmanager.Model_common.UnitList;
 import com.example.businessmanager.Model_common.UnitResponse;
@@ -58,6 +60,10 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
     ImageView cartempty;
     @BindView(R.id.cart_bar)
     ProgressBar progressBar;
+    @BindView(R.id.toolbar_text)
+    TextView title;
+    @BindView(R.id.toolbar_history)
+    ImageView history;
 
 
     @Override
@@ -67,9 +73,10 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
         presenter=new CartPresenter(this);
         ButterKnife.bind(this);
         sharedPref=new SharedPref(this);
-
+        getSupportActionBar().hide();
         presenter.getUnit();
 
+        title.setText("Cart");
         open= AnimationUtils.loadAnimation(this,R.anim.fab_open);
         close= AnimationUtils.loadAnimation(this,R.anim.fab_close);
         forward= AnimationUtils.loadAnimation(this,R.anim.rotate_forward);
@@ -104,6 +111,15 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
             public void onClick(View v) {
                 finish();
                 Intent intent=new Intent(CartActivity.this, ClientDashActivity.class);
+                intent.putExtra("client_details", clientModel);
+                startActivity(intent);
+            }
+        });
+        history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent=new Intent(CartActivity.this, HistoryActivity.class);
                 intent.putExtra("client_details", clientModel);
                 startActivity(intent);
             }

@@ -5,6 +5,9 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <include layout="@layout/toolbar_cart"
+        android:id="@+id/tool"/>
+
     <ProgressBar
         android:id="@+id/cart_bar"
         style="@android:style/Widget.Holo.ProgressBar.Horizontal"
@@ -13,15 +16,15 @@
         android:indeterminate="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/tool"/>
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:src="@drawable/empty_cart"
         android:id="@+id/cart_empty"
-        android:visibility="gone"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toBottomOf="@id/tool"/>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"

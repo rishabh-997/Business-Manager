@@ -77,6 +77,7 @@ public class HoomeActivity extends AppCompatActivity implements HomeActContract.
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        progressBar.setVisibility(View.VISIBLE);
         presenter=new HomeActPresenter(this);
         presenter.getList("0");
 

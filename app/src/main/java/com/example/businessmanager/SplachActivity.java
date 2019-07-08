@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.businessmanager.HomeActivity.MVP.HoomeActivity;
 import com.example.businessmanager.Login.MVP.LogInActivity;
+import com.example.businessmanager.Utilities.MyApplication;
 import com.example.businessmanager.Utilities.SharedPref;
 
 public class SplachActivity extends AppCompatActivity
@@ -19,6 +21,8 @@ public class SplachActivity extends AppCompatActivity
         setContentView(R.layout.activity_splash);
         getSupportActionBar().hide();
         SharedPref sharedPref=new SharedPref(this);
+
+        Log.i("FCM", MyApplication.getFcm());
 
         if(sharedPref.getAccessToken()=="")
         {
