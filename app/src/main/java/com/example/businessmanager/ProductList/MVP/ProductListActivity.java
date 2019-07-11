@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -30,6 +31,9 @@ import com.example.businessmanager.History.MVP.HistoryActivity;
 import com.example.businessmanager.HomeActivity.model.ClientModel;
 import com.example.businessmanager.Model_common.UnitList;
 import com.example.businessmanager.Model_common.UnitResponse;
+import com.example.businessmanager.PopUpActivity;
+import com.example.businessmanager.ProductHistory.Model.ProdHistList;
+import com.example.businessmanager.ProductHistory.Model.ProdHistResponse;
 import com.example.businessmanager.ProductList.model.Comapany_list;
 import com.example.businessmanager.ProductList.model.Comapny_response;
 import com.example.businessmanager.ProductList.model.ProductList;
@@ -54,6 +58,8 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
     @BindView(R.id.prodlist_recycler_view)
     RecyclerView recyclerView;
 
+    @BindView(R.id.bottomsheetbar)
+    ProgressBar progressBar;
     @BindView(R.id.cart_name)
     TextView cart_name;
     @BindView(R.id.cart_id)
@@ -111,6 +117,7 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
     boolean isSheetClosed = true;
     String cost,size, unit,prod_name="",nvm_name="";
     ClientModel clientModel;
+    ProdHistList prodHistList;
     String CompanyNameFull="",CompanyNameShort="",SubCategory="";
 
     @Override
@@ -178,14 +185,6 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(ProductListActivity.this, CartActivity.class);
-                intent.putExtra("client_details", clientModel);
-                startActivity(intent);
-            }
-        });
-        seehistory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(ProductListActivity.this, HistoryActivity.class);
                 intent.putExtra("client_details", clientModel);
                 startActivity(intent);
             }
@@ -295,11 +294,26 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
     @Override
     public void eraseSheet()
     {
+        progressBar.setVisibility(View.GONE);
         cart_price.setText("");
         cart_quantity.setText("");
         nvm.setText("");
         product_name.setText("");
 
+    }
+
+    @Override
+    public void displayHistory(ProdHistResponse body)
+    {
+        progressBar.setVisibility(View.GONE);
+        if(body.getProductList().size()>0) {
+            prodHistList = body.getProductList().get(0);
+            Intent intent = new Intent(this, PopUpActivity.class);
+            intent.putExtra("history", prodHistList);
+            startActivity(intent);
+        }
+        else
+            Toast.makeText(this, clientModel.getName()+" has never ordered this product.", Toast.LENGTH_LONG).show();
     }
 
     private void setCategory(String Company)
@@ -339,7 +353,7 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
             linearLayout2.setVisibility(View.GONE);
         }
 
-        ProductList productList=list.get(position);
+        final ProductList productList=list.get(position);
         cart_name.setText(productList.getName());
         cart_id.setText(productList.getId());
         cart_desciption.setText(productList.getDescription());
@@ -387,6 +401,19 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
                 onBackPressed();
             }
         });
+
+
+        seehistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showProdHistory(clientModel.getMobile(),productList.getId());
+            }
+        });
+    }
+
+    private void showProdHistory(String mobile, String pid) {
+        progressBar.setVisibility(View.VISIBLE);
+        presenter.getProdHist(mobile,pid);
     }
 
     @Override
@@ -397,6 +424,7 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
 
     private void addinCart(int position)
     {
+        progressBar.setVisibility(View.VISIBLE);
         String mobile=clientModel.getMobile();
         String pid=list.get(position).getId();
         cost=cart_price.getText().toString();

@@ -1,6 +1,7 @@
 package com.example.businessmanager.ProductList.MVP;
 
 import com.example.businessmanager.Model_common.UnitResponse;
+import com.example.businessmanager.ProductHistory.Model.ProdHistResponse;
 import com.example.businessmanager.ProductList.model.Comapny_response;
 import com.example.businessmanager.ProductList.model.Product_Response;
 import com.example.businessmanager.ProductList.model.SpecResponse;
@@ -23,6 +24,8 @@ public class ProductListContract
         void showSpecs(SpecResponse body);
 
         void eraseSheet();
+
+        void displayHistory(ProdHistResponse body);
     }
     interface presenter
     {
@@ -33,5 +36,7 @@ public class ProductListContract
         void addCart(String mobile,String pid, String size, String cost, String unit, String nvm, String product_name);
 
         void getUnit();
+
+        void getProdHist(String mobile, String pid);
     }
 }

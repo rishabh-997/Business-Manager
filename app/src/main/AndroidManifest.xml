@@ -48,6 +48,9 @@
             android:label="Client History"/>
         <activity android:name=".ClientDetails.MVP.ClientDetailActivity"
             android:label="Client Details"/>
+        <activity android:name=".PopUpActivity"
+            android:label="POPUP"
+            android:theme="@style/AppTheme.popup"/>
     </application>
 
 </manifest>

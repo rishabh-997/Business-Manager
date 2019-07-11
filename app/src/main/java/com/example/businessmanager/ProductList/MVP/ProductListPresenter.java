@@ -2,6 +2,7 @@ package com.example.businessmanager.ProductList.MVP;
 
 import com.example.businessmanager.Cart.Model.CartResponse_CUD;
 import com.example.businessmanager.Model_common.UnitResponse;
+import com.example.businessmanager.ProductHistory.Model.ProdHistResponse;
 import com.example.businessmanager.ProductList.model.Comapny_response;
 import com.example.businessmanager.ProductList.model.Product_Response;
 import com.example.businessmanager.ProductList.model.SpecResponse;
@@ -140,6 +141,29 @@ public class ProductListPresenter implements ProductListContract.presenter
             @Override
             public void onFailure(Call<UnitResponse> call, Throwable t) {
                 mvpview.showtaost(t.getMessage());
+            }
+        });
+    }
+
+    @Override
+    public void getProdHist(String mobile, String pid) {
+        clientAPI.getProductHistory(mobile,pid).enqueue(new Callback<ProdHistResponse>() {
+            @Override
+            public void onResponse(Call<ProdHistResponse> call, Response<ProdHistResponse> response) {
+                if(response.isSuccessful())
+                {
+                    if(response.body().getMessage().equals("successful"))
+                    {
+                        mvpview.displayHistory(response.body());
+                    }
+                    else
+                        mvpview.showtaost(response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ProdHistResponse> call, Throwable t) {
+
             }
         });
     }

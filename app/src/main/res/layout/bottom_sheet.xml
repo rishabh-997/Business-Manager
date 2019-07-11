@@ -207,8 +207,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:hint="Enter Price"
-                    android:inputType="number"
+                    android:hint="Enter Product Name"
                     android:id="@+id/cart_product_name"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="17sp"/>
@@ -258,4 +257,11 @@
                 android:text="Add to Cart" />
         </RelativeLayout>
     </ScrollView>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/bottomsheetbar"
+        android:visibility="gone"/>
 </RelativeLayout>

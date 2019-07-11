@@ -9,6 +9,7 @@ import com.example.businessmanager.Cart.Model.CartResponse;
 import com.example.businessmanager.Cart.Model.CartResponse_CUD;
 import com.example.businessmanager.Login.Model.LogInResponse;
 import com.example.businessmanager.Model_common.UnitResponse;
+import com.example.businessmanager.ProductHistory.Model.ProdHistResponse;
 import com.example.businessmanager.ProductList.model.Comapny_response;
 import com.example.businessmanager.ProductList.model.Product_Response;
 import com.example.businessmanager.ProductList.model.SpecResponse;
@@ -159,5 +160,12 @@ public interface ClientAPI
     @FormUrlEncoded
     Call<HistoryDetailResponse> getOrderDetailsHistory(
             @Field("OrderId") String id
+    );
+
+    @POST("ProductOrderDetailsHistory/")
+    @FormUrlEncoded
+    Call<ProdHistResponse> getProductHistory(
+            @Field("Mobile") String mobile,
+            @Field("PID") String pid
     );
 }

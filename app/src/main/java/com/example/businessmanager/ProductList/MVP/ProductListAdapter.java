@@ -49,7 +49,11 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         viewHolder.subcategory.setText("Sub_category : "+productList.getSub_category());
         if(image_url.isEmpty())
             image_url="http://unbxd.com/blog/wp-content/uploads/2014/02/No-results-found.jpg";
-        Picasso.get().load(image_url).into(viewHolder.imageView);
+        Picasso.get()
+                .load(image_url)
+                .resizeDimen(R.dimen.image_size,R.dimen.image_size)
+                .centerCrop()
+                .into(viewHolder.imageView);
     }
 
     @Override
