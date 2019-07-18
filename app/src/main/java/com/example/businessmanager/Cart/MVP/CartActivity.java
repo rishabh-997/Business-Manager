@@ -224,6 +224,7 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
         for(int i=0;i<unitList.size();i++)
             unitlistfinal[i]=unitList.get(i).getUnit();
 
+        progressBar.setVisibility(View.VISIBLE);
         presenter.getCart(clientModel.getMobile(),sharedPref.getCompany());
     }
 

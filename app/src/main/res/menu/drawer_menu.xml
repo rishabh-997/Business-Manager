@@ -5,14 +5,18 @@
 
 
     <item
-        android:title="Delete Contact"
-        android:id="@+id/nav_delete"/>
-    <item
         android:title="Add client"
+        android:icon="@drawable/ic_person_add_black_24dp"
         android:id="@+id/nav_client"/>
 
     <item
+        android:title="Check Enquiry"
+        android:icon="@drawable/ic_question_answer_black_24dp"
+        android:id="@+id/nav_enquire"/>
+
+    <item
         android:title="Log Out"
+        android:icon="@drawable/ic_power_settings_new_black_24dp"
         android:id="@+id/nav_logout"/>
 
 </menu>

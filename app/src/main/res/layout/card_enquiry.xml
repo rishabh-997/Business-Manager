@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="6dp">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="3dp">
+
+        <LinearLayout
+            android:padding="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"/>
+
+            <TextView
+                android:id="@+id/enquire_name"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:textAlignment="textEnd"
+                android:layout_height="wrap_content"
+                android:text="Name"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:padding="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Mobile"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"/>
+
+            <TextView
+                android:id="@+id/enquire_mobile"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:textAlignment="textEnd"
+                android:layout_height="wrap_content"
+                android:text="obile"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+        android:padding="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="ID"
+            android:textSize="15sp"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/enquire_id"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:textAlignment="textEnd"
+            android:layout_height="wrap_content"
+            android:text="id"/>
+
+    </LinearLayout>
+
+        <Button
+            android:id="@+id/enquire_update"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@color/pink"
+            android:text="UPDATE STATE"
+            android:textColor="@android:color/white"/>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

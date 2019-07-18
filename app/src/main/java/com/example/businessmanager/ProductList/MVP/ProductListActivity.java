@@ -1,5 +1,6 @@
 package com.example.businessmanager.ProductList.MVP;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,6 +12,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -390,8 +392,9 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
                     Toast.makeText(ProductListActivity.this, "Please Enter The Price", Toast.LENGTH_SHORT).show();
 
                 else {
-                    addinCart(position);
                     onBackPressed();
+                    hideKeyboard();
+                    addinCart(position);
                 }
             }
         });
@@ -453,5 +456,12 @@ public class ProductListActivity extends AppCompatActivity implements ProductLis
         else
             super.onBackPressed();
 
+    }
+    private void hideKeyboard() {
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 }

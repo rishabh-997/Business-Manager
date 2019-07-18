@@ -2,6 +2,8 @@ package com.example.businessmanager.Utilities.Network;
 
 import com.example.businessmanager.CheckOut.Model.PlaceOrderResponse;
 import com.example.businessmanager.ClientRegistration.model.ResponseBody;
+import com.example.businessmanager.Enquire.Mode.ChangeStatusResponse;
+import com.example.businessmanager.Enquire.Mode.EnquiryResponse;
 import com.example.businessmanager.History.Model.HistoryDetailResponse;
 import com.example.businessmanager.History.Model.HistoryResponse;
 import com.example.businessmanager.HomeActivity.model.ResponseClient;
@@ -167,5 +169,19 @@ public interface ClientAPI
     Call<ProdHistResponse> getProductHistory(
             @Field("Mobile") String mobile,
             @Field("PID") String pid
+    );
+
+    @POST("GetProductEnquiry/")
+    @FormUrlEncoded
+    Call<EnquiryResponse> getProductEnquiry(
+        @Field("access_token") String token,
+        @Field("status") String status
+    );
+
+    @POST("ChangeProductEnquiry/")
+    @FormUrlEncoded
+    Call<ChangeStatusResponse> changeProductEnquiry(
+            @Field("access_token") String token,
+            @Field("id") String id
     );
 }

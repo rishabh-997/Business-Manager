@@ -22,8 +22,6 @@ public class SplachActivity extends AppCompatActivity
         getSupportActionBar().hide();
         SharedPref sharedPref=new SharedPref(this);
 
-        Log.i("FCM", MyApplication.getFcm());
-
         if(sharedPref.getAccessToken()=="")
         {
             Handler.postDelayed(new Runnable() {

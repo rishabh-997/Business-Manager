@@ -21,6 +21,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.businessmanager.ClientRegistration.MVP.ClientRegActivity;
+import com.example.businessmanager.Enquire.MVP.EnquiryActivity;
 import com.example.businessmanager.HomeActivity.model.ClientModel;
 import com.example.businessmanager.HomeActivity.model.ResponseClient;
 import com.example.businessmanager.Login.MVP.LogInActivity;
@@ -86,9 +87,9 @@ public class HoomeActivity extends AppCompatActivity implements HomeActContract.
             public boolean onNavigationItemSelected(@NonNull MenuItem item)
             {
                 int id=item.getItemId();
-                if(id==R.id.nav_delete)
+                if(id==R.id.nav_enquire)
                 {
-                    Toast.makeText(HoomeActivity.this, "Inactive", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(HoomeActivity.this, EnquiryActivity.class));
                 }
                 else if(id==R.id.nav_client)
                 {

@@ -51,6 +51,8 @@
         <activity android:name=".PopUpActivity"
             android:label="POPUP"
             android:theme="@style/AppTheme.popup"/>
+        <activity android:name=".Enquire.MVP.EnquiryActivity"
+            android:label="Enquiry" />
     </application>
 
 </manifest>
