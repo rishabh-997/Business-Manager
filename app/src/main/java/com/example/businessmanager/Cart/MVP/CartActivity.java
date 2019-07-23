@@ -62,6 +62,8 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
     ProgressBar progressBar;
     @BindView(R.id.toolbar_text)
     TextView title;
+    @BindView(R.id.toolbar_back)
+    ImageView back;
     @BindView(R.id.toolbar_history)
     ImageView history;
 
@@ -122,6 +124,12 @@ public class CartActivity extends AppCompatActivity implements CartContract.view
                 Intent intent=new Intent(CartActivity.this, HistoryActivity.class);
                 intent.putExtra("client_details", clientModel);
                 startActivity(intent);
+            }
+        });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
     }

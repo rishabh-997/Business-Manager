@@ -38,7 +38,7 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.ViewHold
         EnquiryList enquiryList=list.get(i);
         viewHolder.name.setText(enquiryList.getName());
         viewHolder.mobile.setText(enquiryList.getMobile());
-        viewHolder.id.setText(enquiryList.getId());
+        viewHolder.company.setText(enquiryList.getCompany());
     }
 
     @Override
@@ -48,7 +48,7 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder
     {
-        TextView name,mobile,id;
+        TextView name,mobile,company;
         Button update;
         OnNoteClickListener listen;
 
@@ -58,7 +58,7 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.ViewHold
             listen=onNoteClickListener;
             name=itemView.findViewById(R.id.enquire_name);
             mobile=itemView.findViewById(R.id.enquire_mobile);
-            id=itemView.findViewById(R.id.enquire_id);
+            company=itemView.findViewById(R.id.enquire_company);
             update=itemView.findViewById(R.id.enquire_update);
 
             update.setOnClickListener(new View.OnClickListener() {

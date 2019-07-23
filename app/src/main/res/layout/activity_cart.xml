@@ -25,6 +25,7 @@
         android:src="@drawable/empty_cart"
         android:id="@+id/cart_empty"
         android:scaleType="centerCrop"
+        android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/tool"/>
 
     <android.support.v7.widget.RecyclerView

@@ -17,23 +17,17 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Cart/MVP/CartActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Cart/MVP/CartActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/HomeActivity/MVP/HoomeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/HomeActivity/MVP/HoomeActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/ProductList/MVP/ProductListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/ProductList/MVP/ProductListActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/SplachActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/SplachActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Utilities/Network/ClientAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Utilities/Network/ClientAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/popup.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/popup.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/Contacted/ContactAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/Contacted/ContactAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/Pending/PendingAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/Pending/PendingAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/Pending/PendingFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/Pending/PendingFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/Mode/EnquiryList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/Mode/EnquiryList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_search_black_24dp.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_search_black_24dp.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_cart.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_cart.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/drawer_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/drawer_menu.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/card_enquiry.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/card_enquiry.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/toolbar_cart.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/toolbar_cart.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,10 +56,10 @@
     <session id="931649985">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="99" />
+          <entry key="project.closed" value="103" />
           <entry key="project.open.time.0" value="5" />
-          <entry key="project.open.time.1" value="29" />
-          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.1" value="30" />
+          <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.102" value="1" />
           <entry key="project.open.time.103" value="1" />
           <entry key="project.open.time.105" value="1" />
@@ -81,7 +75,7 @@
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.28" value="1" />
-          <entry key="project.open.time.3" value="9" />
+          <entry key="project.open.time.3" value="11" />
           <entry key="project.open.time.30" value="1" />
           <entry key="project.open.time.32" value="1" />
           <entry key="project.open.time.34" value="1" />
@@ -106,19 +100,19 @@
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.89" value="2" />
           <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="110" />
+          <entry key="project.opened" value="114" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="1" />
           <entry key="gradle" value="14" />
-          <entry key="java" value="1058" />
+          <entry key="java" value="1083" />
           <entry key="java___jb_tmp___" value="1" />
           <entry key="jpg" value="2" />
           <entry key="png" value="3" />
           <entry key="properties" value="2" />
-          <entry key="xml" value="410" />
+          <entry key="xml" value="429" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -126,27 +120,27 @@
           <entry key="CLASS" value="1" />
           <entry key="Groovy" value="14" />
           <entry key="Image" value="5" />
-          <entry key="JAVA" value="1058" />
+          <entry key="JAVA" value="1083" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Properties" value="2" />
-          <entry key="XML" value="410" />
+          <entry key="XML" value="429" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="143" />
           <entry key="gradle" value="6" />
-          <entry key="java" value="26034" />
+          <entry key="java" value="26269" />
           <entry key="txt" value="2" />
-          <entry key="xml" value="9888" />
+          <entry key="xml" value="10100" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="6" />
-          <entry key="JAVA" value="26034" />
+          <entry key="JAVA" value="26269" />
           <entry key="PLAIN_TEXT" value="145" />
-          <entry key="XML" value="9888" />
+          <entry key="XML" value="10100" />
         </counts>
       </usages-collector>
     </session>
@@ -154,14 +148,20 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/Pending/PendingFragment.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml">
+          <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="124" column="42" selection-start-line="124" selection-start-column="42" selection-end-line="124" selection-end-column="42" />
-              <folding>
-                <element signature="method#updateState#0;class#PendingFragment#0" />
-                <element signature="method#updated#0;class#PendingFragment#0" />
-              </folding>
+            <state relative-caret-position="210">
+              <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/box2.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -173,9 +173,9 @@
       <list>
         <option value="Interface" />
         <option value="layoutResourceFile_vertical" />
-        <option value="resourceFile" />
         <option value="Class" />
         <option value="layoutResourceFile" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -185,11 +185,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/ClientRegistration/MVP/ClientRegPresenter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/ClientRegistration/MVP/ClientRegActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Cart/Model/CartList.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/toolbar_cart.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/card_cart_list.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Utilities/Network/Utils.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Services/MyFireBaseMessagingService.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/ProductHistory/Model/ProdHistResponse.java" />
@@ -205,8 +200,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/bottom_sheet.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/SplachActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/popup.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_cart.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Cart/MVP/CartActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/ProductList/MVP/ProductListActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Utilities/Network/ClientAPI.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquiry/Model/GetProductResponse.java" />
@@ -223,19 +216,26 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/HomeActivity/MVP/HoomeActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_contacted.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_pending.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/Mode/EnquiryList.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/Contacted/ContactedContract.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/card_enquiry.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/Contacted/ContactAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/Contacted/ContactedPresenter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/toolbar_back.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_enquire.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/Contacted/ContactedFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/EnquiryActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/Pending/PendingAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/Pending/PendingPresenter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/Pending/PendingContract.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/Mode/EnquiryList.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/Pending/PendingFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/Pending/PendingAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_cart.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Cart/MVP/CartActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/toolbar_cart.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/card_enquiry.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/Contacted/ContactAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_search_black_24dp.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/box2.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" />
       </list>
     </option>
   </component>
@@ -252,9 +252,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -278,39 +275,50 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="businessmanager" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="HomeActivity" type="462c0819:PsiDirectoryNode" />
+              <item name="Enquire" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Business-Manager" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="businessmanager" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="HomeActivity" type="462c0819:PsiDirectoryNode" />
+              <item name="Enquire" type="462c0819:PsiDirectoryNode" />
               <item name="MVP" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Business-Manager" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="businessmanager" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="Utilities" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
             </path>
             <path>
               <item name="Business-Manager" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="businessmanager" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="Utilities" type="462c0819:PsiDirectoryNode" />
-              <item name="Network" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="drawable" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="Business-Manager" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="Business-Manager" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/rishabh/Desktop/Business Manager/Business-Manager/app/src/main/res/layout/toolbar_back.xml&#10;frag&#9;PSI&#9;JAVA://com.example.businessmanager.Enquire.MVP.Contacted.ContactedFragment&#10;clie&#9;PSI&#9;JAVA://com.example.businessmanager.Utilities.Network.ClientAPI&#10;cartAda&#9;PSI&#9;JAVA://com.example.businessmanager.Cart.MVP.CartAdapter" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/rishabh/Desktop/Business Manager/Business-Manager/app/src/main/java/com/example/businessmanager/Enquire/MVP/Contacted/ContactAdapter.java&#10;frag&#9;PSI&#9;JAVA://com.example.businessmanager.Enquire.MVP.Contacted.ContactedFragment&#10;clie&#9;PSI&#9;JAVA://com.example.businessmanager.Utilities.Network.ClientAPI&#10;cartAda&#9;PSI&#9;JAVA://com.example.businessmanager.Cart.MVP.CartAdapter" />
     <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/Documents" />
@@ -446,7 +454,7 @@
     <frame x="0" y="25" width="1366" height="686" extended-state="6" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.29090908" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.29090908" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -467,7 +475,7 @@
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" weight="0.32954547" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="right" id="Preview" order="4" weight="0.29924244" />
+      <window_info active="true" anchor="right" id="Preview" order="4" visible="true" weight="0.29090908" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Assistant" order="6" weight="0.32954547" />
     </layout>
@@ -476,91 +484,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/card_prod_list.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-135" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/ProductList/MVP/ProductListPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-230">
-          <caret line="122" column="29" lean-forward="true" selection-start-line="122" selection-start-column="29" selection-end-line="122" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/bottom_sheet.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="265" column="32" selection-start-line="265" selection-start-column="32" selection-end-line="265" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/SplachActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/popup.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="41" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/ProductList/MVP/ProductListAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="52" column="32" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_cart.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="13" column="43" lean-forward="true" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Cart/MVP/CartActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="226" column="46" selection-start-line="226" selection-start-column="46" selection-end-line="226" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Cart/MVP/CartAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="22" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_popup.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
@@ -573,13 +496,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
           <caret line="39" column="39" selection-start-line="39" selection-start-column="39" selection-end-line="39" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/ProductList/MVP/ProductListActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="221" column="120" selection-start-line="221" selection-start-column="84" selection-end-line="221" selection-end-column="120" />
         </state>
       </provider>
     </entry>
@@ -615,43 +531,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquiry/MVP/EnquirePresenter.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquiry/MVP/EnquireContract.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquiry/MVP/EnquireActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquiry/MVP/ViewPagerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/ContactedFragment.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquiry/MVP/EnquireActivity.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquiry/MVP/ViewPagerAdapter.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/ContactedFragment.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/Mode/ChangeStatusResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/Mode/EnquiryResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -659,35 +545,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="33" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#330#331#0" expanded="true" />
-            <element signature="e#354#355#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="428">
           <caret line="53" column="60" selection-start-line="53" selection-start-column="60" selection-end-line="53" selection-end-column="60" />
         </state>
       </provider>
+      <provider editor-type-id="android-manifest" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_pending.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_contacted.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" lean-forward="true" selection-end-line="29" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -698,13 +571,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/Mode/EnquiryList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/Contacted/ContactedContract.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -712,29 +578,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/Contacted/ContactAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="39" column="49" selection-start-line="39" selection-start-column="49" selection-end-line="39" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/Contacted/ContactedPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="354">
           <caret line="26" column="67" selection-start-line="26" selection-start-column="67" selection-end-line="26" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/toolbar_cart.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/toolbar.xml">
       <provider editor-type-id="android-designer2" />
@@ -743,73 +592,11 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_arrow_back_black_24dp.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_enquire.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/toolbar_back.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="43" lean-forward="true" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/Contacted/ContactedFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="80" column="39" lean-forward="true" selection-start-line="80" selection-start-column="39" selection-end-line="80" selection-end-column="39" />
-          <folding>
-            <element signature="method#ContactedFragment#0;class#ContactedFragment#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/EnquiryActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Utilities/Network/ClientAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/card_enquiry.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/Pending/PendingAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="83" column="12" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2417#2612#0" expanded="true" />
-            <element signature="e#2611#2612#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/HomeActivity/MVP/HomeActPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="34" column="58" lean-forward="true" selection-start-line="26" selection-start-column="16" selection-end-line="34" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -827,9 +614,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="12" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -837,9 +621,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-885">
           <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -850,14 +631,199 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/Contacted/ContactedFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="80" column="39" lean-forward="true" selection-start-line="80" selection-start-column="39" selection-end-line="80" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/HomeActivity/model/ClientModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="20" column="31" lean-forward="true" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/HomeActivity/MVP/HomeActPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="34" column="58" lean-forward="true" selection-start-line="26" selection-start-column="16" selection-end-line="34" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Utilities/Network/ClientAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/HomeActivity/model/ResponseClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/ProductList/MVP/ProductListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="465" column="5" selection-start-line="459" selection-start-column="4" selection-end-line="465" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/Mode/EnquiryResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/Mode/EnquiryList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+          <folding>
+            <element signature="e#671#672#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/ClientDashboard/MVP/ClientDashActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-950">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/EnquiryActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/Pending/PendingAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="40" column="59" selection-start-line="40" selection-start-column="59" selection-end-line="40" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/Pending/PendingFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="124" column="42" selection-start-line="124" selection-start-column="42" selection-end-line="124" selection-end-column="42" />
+        <state relative-caret-position="459">
+          <caret line="125" column="74" selection-start-line="125" selection-start-column="74" selection-end-line="125" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_checkout.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="29" lean-forward="true" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/CheckOut/MVP/CheckOutActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="88" column="46" selection-start-line="88" selection-start-column="46" selection-end-line="88" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Cart/MVP/CartActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="131" column="32" selection-start-line="131" selection-start-column="32" selection-end-line="131" selection-end-column="32" />
           <folding>
-            <element signature="method#updateState#0;class#PendingFragment#0" />
-            <element signature="method#updated#0;class#PendingFragment#0" />
+            <element signature="e#4474#4623#0" expanded="true" />
+            <element signature="e#4622#4623#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_cart.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-30">
+          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/toolbar_cart.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_enquire.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_contacted.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/card_enquiry.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/businessmanager/Enquire/MVP/Contacted/ContactAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="43" column="12" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/box.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="32" lean-forward="true" selection-end-line="15" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_search_black_24dp.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="67" selection-start-column="67" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="38" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/box2.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
         </state>
       </provider>
     </entry>

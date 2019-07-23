@@ -12,6 +12,8 @@ public class EnquiryList
     String mobile;
     @SerializedName("Enquiry_Status")
     String status;
+    @SerializedName("Company")
+    String Company;
 
     public String getId() {
         return id;
@@ -27,5 +29,9 @@ public class EnquiryList
 
     public String getStatus() {
         return status;
+    }
+
+    public String getCompany() {
+        return Company;
     }
 }

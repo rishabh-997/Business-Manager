@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.businessmanager.Cart.MVP.CartActivity;
 import com.example.businessmanager.ClientDashboard.MVP.ClientDashActivity;
 import com.example.businessmanager.Enquire.Mode.EnquiryList;
 import com.example.businessmanager.Enquire.Mode.EnquiryResponse;
@@ -109,6 +110,7 @@ public class PendingFragment extends Fragment implements PendingContract.view,Pe
     @Override
     public void goToDashBoard(int adapterPosition) {
         String mobile=list.get(adapterPosition).getMobile();
+        sharedPref.setCompany(list.get(adapterPosition).getCompany());
         progressBar.setVisibility(View.VISIBLE);
         presenter.search(mobile);
     }
@@ -120,7 +122,7 @@ public class PendingFragment extends Fragment implements PendingContract.view,Pe
         if(body.getList().size()>0)
         {
             ClientModel clientModel=body.getList().get(0);
-            Intent intent=new Intent(getContext(), ClientDashActivity.class);
+            Intent intent=new Intent(getContext(), CartActivity.class);
             intent.putExtra("client_details", (Serializable) clientModel);
             startActivity(intent);
         }
